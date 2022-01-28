@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainMenuFragment">
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/welcome_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,15 +17,76 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.4" />-->
+
+ <TextView
+     android:id="@+id/version_text"
+     android:layout_width="0dp"
+     android:layout_height="wrap_content"
+     android:text="@string/version_1"
+     android:textAlignment="center"
+     android:textColor="#004D40"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/creators_text" />
+
+ <ImageView
+        android:id="@+id/mem_card_game_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/game_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/memory_card_game_logo_png" />
 
     <Button
         android:id="@+id/play_game_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Game"
+        android:text="@string/play_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <ImageView
+        android:id="@+id/pure_michigan_logo"
+        android:layout_width="305dp"
+        android:layout_height="91dp"
+        android:contentDescription="@string/game_edition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mem_card_game_logo"
+        app:srcCompat="@drawable/download" />
+
+ <TextView
+     android:id="@+id/creators_text"
+     android:layout_width="0dp"
+     android:layout_height="wrap_content"
+     android:text="@string/creators"
+     android:textAlignment="center"
+     android:textColor="#004D40"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent"
+     app:layout_constraintVertical_bias="0.9" />
+
+ <TextView
+        android:id="@+id/edition_text"
+        android:layout_width="129dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/edition"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pure_michigan_logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

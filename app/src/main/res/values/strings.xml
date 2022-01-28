@@ -1,15 +1,11 @@
 <resources>
     <string name="app_name">Memory</string>
-<<<<<<< HEAD
     <string name="Start">Start</string>
-    <string name="version_1">Version 1</string>
+    <string name="version_1">v1.0</string>
     <string name="main_screen_background">Main Screen Background</string>
-    <string name="created_by_matt_ferretti_isabel_albaitis_and_steve_meadows">Created by: Matt Ferretti, Isabel Albaitis, and Steve Meadows</string>
+    <string name="creators">Isabel Albaitis, Matt Ferretti, Steve Meadows</string>
     <string name="game_logo">Game_Logo</string>
     <string name="edition">Edition</string>
     <string name="game_edition">game_edition</string>
-=======
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
->>>>>>> master
+    <string name="play_game">Play Game</string>
 </resources>

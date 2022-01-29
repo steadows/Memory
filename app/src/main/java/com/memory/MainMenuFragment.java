@@ -20,7 +20,7 @@ import android.widget.Button;
 public class MainMenuFragment extends Fragment {
 
     Button playGameButton;
-    static NavController navController;
+    NavController navController;
 
     public MainMenuFragment() {
         // Required empty public constructor
@@ -44,15 +44,12 @@ public class MainMenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-
-
         playGameButton = view.findViewById(R.id.play_game_button);
 
+
+
         playGameButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_home_to_game)
-                );
-
-
+                findNavController(v).navigate(R.id.action_home_to_game));
     }
 
 }

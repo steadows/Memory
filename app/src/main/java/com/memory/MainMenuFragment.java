@@ -12,6 +12,7 @@ import androidx.navigation.fragment.FragmentKt;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 
 /**
@@ -49,7 +50,7 @@ public class MainMenuFragment extends Fragment {
 
 
         playGameButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_home_to_game));
+                findNavController(v).navigate(R.id.action_mainMenuFragment_to_subMenu_Single));
     }
 
 }

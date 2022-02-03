@@ -8,4 +8,15 @@
     <string name="edition">Edition</string>
     <string name="game_edition">game_edition</string>
     <string name="play_game">Play Game</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tradition_mode">Tradition Mode</string>
+    <string name="time_trail_mode">Time Trail Mode</string>
+    <string name="click_here_to_learn_how_to_play">Click Here to learn how to play</string>
+    <string name="how_to_play">How To Play</string>
+    <string name="instructions_put_here">Instructions put here</string>
+    <string name="traditional_mode">Traditional Mode</string>
+    <string name="time_trial_mode">Time Trial Mode</string>
 </resources>

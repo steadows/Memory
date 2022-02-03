@@ -12,8 +12,12 @@
         tools:layout="@layout/fragment_main_menu">
 
         <action
-            android:id="@+id/action_home_to_game"
-            app:destination="@id/gamePlayFragment" />
+            android:id="@+id/action_mainMenuFragment_to_subMenu_Single"
+            app:destination="@id/subMenu_Single"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
     </fragment>
 
@@ -22,5 +26,30 @@
         android:name="com.memory.GamePlayFragment"
         android:label="fragment_game_play"
         tools:layout="@layout/fragment_game_play" />
+    <fragment
+        android:id="@+id/subMenu_Single"
+        android:name="com.memory.SubMenu_Single"
+        android:label="fragment_sub_menu__single"
+        tools:layout="@layout/fragment_sub_menu__single" >
+        <action
+            android:id="@+id/action_subMenu_Single_to_gamePlayFragment"
+            app:destination="@id/gamePlayFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_instructionFragment"
+            app:destination="@id/instructionFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.memory.InstructionFragment"
+        android:label="fragment_instruction"
+        tools:layout="@layout/fragment_instruction" />
 
 </navigation>

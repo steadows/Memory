@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#abcdef"
+    tools:context=".SubMenu_Single"
+    tools:visibility="visible">
+
+    <Button
+        android:id="@+id/Traditional_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="230dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="188dp"
+        android:stateListAnimator="@android:anim/bounce_interpolator"
+        android:text="@string/traditional_mode"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/TimeTrialMode_Button"
+        android:layout_width="230dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/time_trial_mode"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Traditional_button" />
+
+    <Button
+        android:id="@+id/Instruction_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="39dp"
+        android:text="@string/click_here_to_learn_how_to_play"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#0B0A0A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

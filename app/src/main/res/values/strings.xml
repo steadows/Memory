@@ -19,4 +19,10 @@
     <string name="instructions_put_here">Instructions put here</string>
     <string name="traditional_mode">Traditional Mode</string>
     <string name="time_trial_mode">Time Trial Mode</string>
+    <string name="traditional_mode_will_have_the_user_start_with_a_grid_of_cards_laying_face_down_the_clock_will_then_start_counting_up_the_user_then_will_match_each_card_with_its_pair_until_there_are_no_more_pairs_left_and_the_board_is_empty_the_mode_will_end_displaying_how_fast_the_user_was_able_to_match_all_pairs">Traditional mode will have the user start with a grid of cards laying face down. The clock will then start counting up. The user then will match each card with its pair until there are no more pairs left and the board is empty. The mode will end displaying how fast the user was able to match all pairs.</string>
+    <string name="time_trial_mode_will_start_the_user_with_a_grid_of_face_down_cards_laying_face_down_on_the_board_a_short_countdown_will_begin_from_3_to_prepare_the_user_for_the_round_once_the_round_starts_the_main_timer_will_start_to_count_down_from_a_specified_time_the_user_must_race_against_the_clock_to_find_all_matches_in_time_or_else_the_round_ends_there">Time Trial mode will start the user with a grid of face down cards laying face down on the board. A short countdown will begin from 3 to prepare the user for the round. Once the round starts the main timer will start to count down from a specified time. The user must race against the clock to find all matches in time or else the round ends there.</string>
+    <string name="modes">Modes</string>
+    <string name="game_modes">Game Modes</string>
+    <string name="picture_of_a_wooden_sign">picture of a wooden sign</string>
+    <string name="yellow_background_behind_main_menu_title">yellow background behind main menu title</string>
 </resources>

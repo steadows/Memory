@@ -54,6 +54,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="336dp"
+        android:layout_height="312dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintStart_toStartOf="@+id/game_board_view"
+        app:layout_constraintTop_toTopOf="@+id/mem_match_title" />
+
     <TextView
         android:id="@+id/matches_text"
         android:layout_width="180dp"

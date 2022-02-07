@@ -24,6 +24,9 @@ public class InstructionFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    // Instructions string
+    String traditionalInstructions = "Hi";
+
     public InstructionFragment() {
         // Required empty public constructor
     }

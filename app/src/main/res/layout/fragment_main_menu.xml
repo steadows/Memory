@@ -21,6 +21,73 @@
         app:layout_constraintTop_toBottomOf="@+id/creators_text" />
 
     <ImageView
+        android:id="@+id/yellowPicture"
+        android:layout_width="601dp"
+        android:layout_height="237dp"
+        android:layout_marginBottom="520dp"
+        android:contentDescription="@string/yellow_background_behind_main_menu_title"
+        android:src="@drawable/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/sign"
+        android:layout_width="394dp"
+        android:layout_height="312dp"
+        android:layout_marginBottom="312dp"
+        android:contentDescription="@string/picture_of_a_wooden_sign"
+        android:src="@drawable/woodsign2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/pure_michigan_logo"
+        android:layout_width="305dp"
+        android:layout_height="91dp"
+        android:backgroundTint="#000000"
+        android:backgroundTintMode="add"
+        android:contentDescription="@string/game_edition"
+        android:rotation="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mem_card_game_logo"
+        app:layout_constraintVertical_bias="0.376"
+        app:srcCompat="@drawable/download" />
+
+    <ImageView
+        android:id="@+id/pure_michigan_logo2"
+        android:layout_width="305dp"
+        android:layout_height="91dp"
+        android:backgroundTint="#000000"
+        android:backgroundTintMode="add"
+        android:contentDescription="@string/game_edition"
+        android:rotation="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mem_card_game_logo"
+        app:layout_constraintVertical_bias="0.376"
+        app:srcCompat="@drawable/download" />
+
+    <TextView
+        android:id="@+id/edition_text"
+        android:layout_width="129dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="72dp"
+        android:rotation="0"
+        android:text="@string/edition"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pure_michigan_logo" />
+
+    <ImageView
         android:id="@+id/mem_card_game_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,6 +103,8 @@
         android:id="@+id/play_game_button"
         android:layout_width="190dp"
         android:layout_height="70dp"
+        android:hapticFeedbackEnabled="true"
+        android:shadowColor="#000000"
         android:text="@string/play_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,18 +112,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.677" />
-
-    <ImageView
-        android:id="@+id/pure_michigan_logo"
-        android:layout_width="305dp"
-        android:layout_height="91dp"
-        android:contentDescription="@string/game_edition"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mem_card_game_logo"
-        app:layout_constraintVertical_bias="0.321"
-        app:srcCompat="@drawable/download" />
 
     <TextView
         android:id="@+id/creators_text"
@@ -68,18 +125,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.9" />
-
-    <TextView
-        android:id="@+id/edition_text"
-        android:layout_width="129dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="88dp"
-        android:text="@string/edition"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pure_michigan_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

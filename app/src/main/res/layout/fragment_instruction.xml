@@ -13,29 +13,76 @@
         android:layout_width="342dp"
         android:layout_height="131dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="35dp"
         android:fontFamily="serif"
         android:text="@string/how_to_play"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#37474F"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="361dp"
-        android:layout_height="532dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="39dp"
-        android:text="@string/instructions_put_here"
-        android:textColor="#37474F"
+    <ScrollView
+        android:layout_width="415dp"
+        android:layout_height="626dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HowToPlay_text"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/matchExplaination"
+                android:layout_width="match_parent"
+                android:textSize="25sp"
+                android:layout_height="wrap_content"
+                android:text="The goal of the game is to find matches! What counts as a match? Well there are two of each kind of card."
+                android:textColor="#37474F" />
+
+            <Space
+                android:layout_width="500dp"
+                android:layout_height="25dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/game_modes"
+                android:textSize="35sp"
+                android:textColor="#37474F" />
+
+            <TextView
+                android:id="@+id/traditionalExplaination"
+                android:layout_width="390dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="36dp"
+                android:text="@string/traditional_mode_will_have_the_user_start_with_a_grid_of_cards_laying_face_down_the_clock_will_then_start_counting_up_the_user_then_will_match_each_card_with_its_pair_until_there_are_no_more_pairs_left_and_the_board_is_empty_the_mode_will_end_displaying_how_fast_the_user_was_able_to_match_all_pairs"
+                android:textColor="#37474F"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/timeTrialExplaination"
+                android:textColor="#37474F"
+                android:textSize="25sp"
+                android:text="@string/time_trial_mode_will_start_the_user_with_a_grid_of_face_down_cards_laying_face_down_on_the_board_a_short_countdown_will_begin_from_3_to_prepare_the_user_for_the_round_once_the_round_starts_the_main_timer_will_start_to_count_down_from_a_specified_time_the_user_must_race_against_the_clock_to_find_all_matches_in_time_or_else_the_round_ends_there"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mem_card_game_logo"
         app:layout_constraintVertical_bias="0.376"
-        app:srcCompat="@drawable/download" />
+        app:srcCompat="@drawable/pure_michigan" />
 
     <ImageView
         android:id="@+id/pure_michigan_logo2"
@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mem_card_game_logo"
         app:layout_constraintVertical_bias="0.376"
-        app:srcCompat="@drawable/download" />
+        app:srcCompat="@drawable/pure_michigan" />
 
     <TextView
         android:id="@+id/edition_text"
@@ -97,7 +97,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/memory_card_game_logo_png" />
+        app:srcCompat="@drawable/memory_card_game_logo" />
 
     <Button
         android:id="@+id/play_game_button"

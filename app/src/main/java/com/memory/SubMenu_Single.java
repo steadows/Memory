@@ -77,6 +77,7 @@ public class SubMenu_Single extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
+
         TraditionalButton = view.findViewById(R.id.Traditional_button);
         Button instructionButton = view.findViewById(R.id.Instruction_button);
 

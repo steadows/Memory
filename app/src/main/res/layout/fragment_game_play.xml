@@ -39,8 +39,10 @@
         android:background="#74264E91"
         app:layout_constraintBottom_toTopOf="@+id/scorecard_view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mem_match_title" />
+        app:layout_constraintTop_toBottomOf="@+id/mem_match_title"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/scorecard_view"
@@ -134,5 +136,13 @@
         app:layout_constraintStart_toEndOf="@+id/matches_text"
         app:layout_constraintTop_toTopOf="@+id/scorecard_view"
         app:layout_constraintVertical_bias="0.20999998" />
+
+    <ToggleButton
+        android:id="@+id/cardButton"
+        android:layout_width="115dp"
+        android:layout_height="136dp"
+        android:text="ToggleButton"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="181dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

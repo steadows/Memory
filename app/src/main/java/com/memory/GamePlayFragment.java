@@ -24,6 +24,14 @@ public class GamePlayFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    // Library of all cards available for use
+    private static Card[] allCards;
+
+    // Cards in use for game board
+    private Card[] gameSet1;
+    private Card[] gameSet2;
+
+
     public GamePlayFragment() {
         // Required empty public constructor
     }

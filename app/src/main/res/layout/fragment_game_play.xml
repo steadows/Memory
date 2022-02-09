@@ -8,6 +8,63 @@
     android:background="#ECCFFF"
     tools:context=".GamePlayFragment">
 
+    <ToggleButton
+        android:id="@+id/cardButton16"
+        android:layout_width="173dp"
+        android:layout_height="211dp"
+        android:background="@drawable/check"
+        android:checked="false"
+        android:text="ToggleButton"
+        android:textOff=" "
+        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/game_board_view"
+        app:layout_constraintTop_toTopOf="@+id/game_board_view"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <ToggleButton
+        android:id="@+id/cardButton17"
+        android:layout_width="169dp"
+        android:layout_height="217dp"
+        android:background="@drawable/card_back"
+        android:text="ToggleButton"
+        android:textOff=" "
+        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/game_board_view"
+        app:layout_constraintTop_toTopOf="@+id/game_board_view"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <ToggleButton
+        android:id="@+id/cardButton18"
+        android:layout_width="169dp"
+        android:layout_height="217dp"
+        android:background="@drawable/card_back"
+        android:text="ToggleButton"
+        android:textOff=" "
+        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/game_board_view"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <ToggleButton
+        android:id="@+id/cardButton19"
+        android:layout_width="170dp"
+        android:layout_height="207dp"
+        android:background="@drawable/card_back"
+        android:text="ToggleButton"
+        android:textOff=" "
+        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/game_board_view"
+        app:layout_constraintTop_toTopOf="@+id/game_board_view"
+        app:layout_constraintVertical_bias="0.100000024" />
+
     <TextView
         android:id="@+id/mem_match_title"
         android:layout_width="0dp"
@@ -136,13 +193,5 @@
         app:layout_constraintStart_toEndOf="@+id/matches_text"
         app:layout_constraintTop_toTopOf="@+id/scorecard_view"
         app:layout_constraintVertical_bias="0.20999998" />
-
-    <ToggleButton
-        android:id="@+id/cardButton"
-        android:layout_width="115dp"
-        android:layout_height="136dp"
-        android:text="ToggleButton"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="181dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

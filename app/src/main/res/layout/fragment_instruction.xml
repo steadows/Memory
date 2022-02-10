@@ -25,8 +25,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="415dp"
-        android:layout_height="626dp"
+        android:layout_width="400dp"
+        android:layout_height="628dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -42,11 +44,11 @@
 
             <TextView
                 android:id="@+id/matchExplaination"
-                android:layout_width="match_parent"
-                android:textSize="25sp"
+                android:layout_width="392dp"
                 android:layout_height="wrap_content"
                 android:text="@string/the_game_will_start_with_an_even_number_of_cards_organized_into_a_grid_of_rows_and_columns_each_card_will_appear_face_down_hiding_the_image_on_the_other_side_to_reveal_the_image_just_tap_on_the_card_the_card_will_then_show_its_hidden_image_you_can_see_at_most_2_cards_hidden_images_if_the_two_cards_hidden_images_match_then_they_will_disappear_and_you_will_get_a_point_for_a_completed_match_if_they_do_not_match_then_they_will_flip_back_over_hiding_their_images_once_again_the_goal_is_to_find_all_matches_as_fast_as_possible_by_memorizing_the_position_of_each_cards_hidden_image_on_the_board"
-                android:textColor="#37474F" />
+                android:textColor="#37474F"
+                android:textSize="25sp" />
 
             <Space
                 android:layout_width="500dp"
@@ -57,8 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/game_modes"
-                android:textSize="35sp"
-                android:textColor="#37474F" />
+                android:textColor="#37474F"
+                android:textSize="35sp" />
 
             <TextView
                 android:id="@+id/traditionalExplaination"
@@ -73,11 +75,11 @@
 
             <TextView
                 android:id="@+id/timeTrialExplaination"
-                android:textColor="#37474F"
-                android:textSize="25sp"
-                android:text="@string/time_trial_mode_will_start_the_user_with_a_grid_of_face_down_cards_laying_face_down_on_the_board_a_short_countdown_will_begin_from_3_to_prepare_the_user_for_the_round_once_the_round_starts_the_main_timer_will_start_to_count_down_from_a_specified_time_the_user_must_race_against_the_clock_to_find_all_matches_in_time_or_else_the_round_ends_there"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/time_trial_mode_will_start_the_user_with_a_grid_of_face_down_cards_laying_face_down_on_the_board_a_short_countdown_will_begin_from_3_to_prepare_the_user_for_the_round_once_the_round_starts_the_main_timer_will_start_to_count_down_from_a_specified_time_the_user_must_race_against_the_clock_to_find_all_matches_in_time_or_else_the_round_ends_there"
+                android:textColor="#37474F"
+                android:textSize="25sp" />
 
             <Space
                 android:layout_width="match_parent"

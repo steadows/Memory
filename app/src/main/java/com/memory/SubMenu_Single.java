@@ -11,6 +11,8 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 /**
@@ -31,6 +33,7 @@ public class SubMenu_Single extends Fragment {
 
     Button TraditionalButton;
     Button instructionButton;
+    Button timeTrialButton;
     NavController navController;
 
     public SubMenu_Single() {
@@ -78,8 +81,19 @@ public class SubMenu_Single extends Fragment {
 
         navController = Navigation.findNavController(view);
 
+        // Find buttons on screen and assign them to variables
         TraditionalButton = view.findViewById(R.id.Traditional_button);
-        Button instructionButton = view.findViewById(R.id.Instruction_button);
+        instructionButton = view.findViewById(R.id.Instruction_button);
+        timeTrialButton = view.findViewById(R.id.TimeTrialMode_Button);
+
+        // Gives buttons bounce animation "bubble button"
+        final Animation myAnim = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        myAnim.setInterpolator(interpolator);
+
+        TraditionalButton.startAnimation(myAnim);
+        timeTrialButton.startAnimation(myAnim);
 
         TraditionalButton.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_subMenu_Single_to_gamePlayFragment));

@@ -3,10 +3,17 @@ package com.memory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +31,8 @@ public class GamePlayFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    NavController navController;
+
     // Library of all cards available for use
     private static Card[] allCards;
 
@@ -31,6 +40,11 @@ public class GamePlayFragment extends Fragment {
     private Card[] gameSet1;
     private Card[] gameSet2;
 
+    // Creating Timer
+    Timer timer;
+    TimerTask timerTask;
+    double time = 0.0;
+    TextView timerText;
 
     public GamePlayFragment() {
         // Required empty public constructor
@@ -68,5 +82,46 @@ public class GamePlayFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game_play, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        navController = Navigation.findNavController(view);
+        timerText = view.findViewById(R.id.timer_text);
+        timer = new Timer();
+
+        startTimer();
+
+    }
+
+    private void startTimer() {
+        timerTask = new TimerTask() {
+
+            @Override
+            public void run() {
+                requireActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time++;
+                        timerText.setText(getTime());
+                    }
+                });
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask, 0 ,17);
+    }
+
+
+    private String getTime(){
+
+        int rounded = (int) Math.round(time);
+
+        int milliseconds = ((rounded % 86400) % 3600) % 60;
+        int seconds = ((rounded % 86400) % 3600) / 60;
+        int minutes = ((rounded % 86400) / 3600);
+
+        return String.format("%01d",minutes) + " : " + String.format("%02d",seconds) + " : " + String.format("%02d",milliseconds);
     }
 }

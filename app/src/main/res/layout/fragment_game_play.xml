@@ -10,9 +10,9 @@
 
     <ToggleButton
         android:id="@+id/cardButton16"
-        android:layout_width="173dp"
-        android:layout_height="211dp"
-        android:background="@drawable/check"
+        android:layout_width="169dp"
+        android:layout_height="217dp"
+        android:background="@drawable/check_cherry_rep"
         android:checked="false"
         android:text="ToggleButton"
         android:textOff=" "
@@ -23,11 +23,12 @@
         app:layout_constraintTop_toTopOf="@+id/game_board_view"
         app:layout_constraintVertical_bias="0.100000024" />
 
+
     <ToggleButton
         android:id="@+id/cardButton17"
         android:layout_width="169dp"
         android:layout_height="217dp"
-        android:background="@drawable/card_back"
+        android:background="@drawable/check_cherry_rep"
         android:text="ToggleButton"
         android:textOff=" "
         app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
@@ -41,7 +42,7 @@
         android:id="@+id/cardButton18"
         android:layout_width="169dp"
         android:layout_height="217dp"
-        android:background="@drawable/card_back"
+        android:background="@drawable/check_faygo"
         android:text="ToggleButton"
         android:textOff=" "
         app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
@@ -55,7 +56,7 @@
         android:id="@+id/cardButton19"
         android:layout_width="170dp"
         android:layout_height="207dp"
-        android:background="@drawable/card_back"
+        android:background="@drawable/check_faygo"
         android:text="ToggleButton"
         android:textOff=" "
         app:layout_constraintBottom_toBottomOf="@+id/game_board_view"

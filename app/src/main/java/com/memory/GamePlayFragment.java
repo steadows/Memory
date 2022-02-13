@@ -94,6 +94,8 @@ public class GamePlayFragment extends Fragment {
 
         startTimer();
 
+
+
     }
 
     private void startTimer() {

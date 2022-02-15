@@ -1,17 +1,25 @@
 package com.memory;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.gusakov.library.PulseCountDown;
+import com.gusakov.library.java.interfaces.OnCountdownCompleted;
+
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,14 +44,10 @@ public class GamePlayFragment extends Fragment {
     // Library of all cards available for use
     private static Card[] allCards;
 
-    // Cards in use for game board
-    private Card[] gameSet1;
-    private Card[] gameSet2;
-
     // Creating Timer
-    Timer timer;
-    TimerTask timerTask;
-    double time = 0.0;
+    Handler timeHandler = new Handler();
+    long startTime;
+    Boolean firstStart = true;
     TextView timerText;
 
     public GamePlayFragment() {
@@ -75,7 +79,8 @@ public class GamePlayFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
+     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,40 +95,46 @@ public class GamePlayFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
         timerText = view.findViewById(R.id.timer_text);
-        timer = new Timer();
+        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDown);
 
-        startTimer();
+        pulseCountDown.bringToFront();
 
-
-
-    }
-
-    private void startTimer() {
-        timerTask = new TimerTask() {
-
+        pulseCountDown.start(new OnCountdownCompleted(  ) {
             @Override
-            public void run() {
-                requireActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        time++;
-                        timerText.setText(getTime());
-                    }
-                });
+            public void completed(  ) {
+                // What to do when countdown completes
             }
-        };
-        timer.scheduleAtFixedRate(timerTask, 0 ,17);
-    }
+        } );
+
+        timeHandler.postDelayed(timeRunnable,5500);
+    };
 
 
-    private String getTime(){
+    /****************************************************
+     * Creates Runnable object that constantly updates
+     * the variable timerText
+     ***************************************************/
+    final Runnable timeRunnable = new Runnable() {
+        public void run() {
+            if(firstStart){
+                startTime = System.currentTimeMillis() ;
+                firstStart = false;
+            }
+            long millis = System.currentTimeMillis() - (startTime);
+            int seconds = (int) (millis / 1000);
+            int minutes = seconds / 60;
+            millis = millis % 1000;
 
-        int rounded = (int) Math.round(time);
+            seconds = seconds % 60;
+            timeHandler.postDelayed(this, 0);
+            timerText.setText(String.format("%d:%02d:%03d", minutes, seconds, millis));
+        }
+    };
 
-        int milliseconds = ((rounded % 86400) % 3600) % 60;
-        int seconds = ((rounded % 86400) % 3600) / 60;
-        int minutes = ((rounded % 86400) / 3600);
 
-        return String.format("%01d",minutes) + " : " + String.format("%02d",seconds) + " : " + String.format("%02d",milliseconds);
-    }
+
+
+
+
+
 }

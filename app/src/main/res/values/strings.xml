@@ -26,4 +26,10 @@
     <string name="picture_of_a_wooden_sign">picture of a wooden sign</string>
     <string name="yellow_background_behind_main_menu_title">yellow background behind main menu title</string>
     <string name="the_game_will_start_with_an_even_number_of_cards_organized_into_a_grid_of_rows_and_columns_each_card_will_appear_face_down_hiding_the_image_on_the_other_side_to_reveal_the_image_just_tap_on_the_card_the_card_will_then_show_its_hidden_image_you_can_see_at_most_2_cards_hidden_images_if_the_two_cards_hidden_images_match_then_they_will_disappear_and_you_will_get_a_point_for_a_completed_match_if_they_do_not_match_then_they_will_flip_back_over_hiding_their_images_once_again_the_goal_is_to_find_all_matches_as_fast_as_possible_by_memorizing_the_position_of_each_cards_hidden_image_on_the_board">The game will start with an even number of cards organized into a grid of rows and columns. Each card will appear face down hiding the image on the other side. To reveal the image just tap on the card. The card will then show its hidden image. You can see at most 2 cards hidden images. If the two cards hidden images match then they will disappear and you will get a point for a completed match. If they do not match then they will flip back over hiding their images once again. The goal is to find all matches as fast as possible by memorizing the position of each cards hidden image on the board.</string>
+    <string name="matches">Matches:</string>
+    <string name="time_elapsed">Time Elapsed:</string>
+    <string name="_0">0</string>
+    <string name="_5">5</string>
+    <string name="_0_00_00">0:00:00</string>
+    <string name="title_underline">Title Underline</string>
 </resources>

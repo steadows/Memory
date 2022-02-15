@@ -8,64 +8,6 @@
     android:background="#abcdef"
     tools:context=".GamePlayFragment">
 
-    <ToggleButton
-        android:id="@+id/cardButton16"
-        android:layout_width="169dp"
-        android:layout_height="217dp"
-        android:background="@drawable/check_cherry_rep"
-        android:checked="false"
-        android:text="ToggleButton"
-        android:textOff=" "
-        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="@+id/game_board_view"
-        app:layout_constraintTop_toTopOf="@+id/game_board_view"
-        app:layout_constraintVertical_bias="0.100000024" />
-
-
-    <ToggleButton
-        android:id="@+id/cardButton17"
-        android:layout_width="169dp"
-        android:layout_height="217dp"
-        android:background="@drawable/check_cherry_rep"
-        android:text="ToggleButton"
-        android:textOff=" "
-        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="@+id/game_board_view"
-        app:layout_constraintTop_toTopOf="@+id/game_board_view"
-        app:layout_constraintVertical_bias="0.9" />
-
-    <ToggleButton
-        android:id="@+id/cardButton18"
-        android:layout_width="169dp"
-        android:layout_height="217dp"
-        android:background="@drawable/check_faygo"
-        android:text="ToggleButton"
-        android:textOff=" "
-        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/game_board_view"
-        app:layout_constraintVertical_bias="0.9" />
-
-    <ToggleButton
-        android:id="@+id/cardButton19"
-        android:layout_width="170dp"
-        android:layout_height="207dp"
-        android:background="@drawable/check_faygo"
-        android:text="ToggleButton"
-        android:textOff=" "
-        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="@+id/game_board_view"
-        app:layout_constraintTop_toTopOf="@+id/game_board_view"
-        app:layout_constraintVertical_bias="0.100000024" />
-
     <View
         android:id="@+id/game_board_view"
         android:layout_width="395dp"
@@ -81,6 +23,62 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+    <ToggleButton
+        android:id="@+id/cardButton16"
+        android:layout_width="169dp"
+        android:layout_height="217dp"
+        android:background="@drawable/check_cherry_rep"
+        android:checked="false"
+        android:textColor="#212121"
+        android:textOff=" "
+        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/game_board_view"
+        app:layout_constraintTop_toTopOf="@+id/game_board_view"
+        app:layout_constraintVertical_bias="0.100000024"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+
+    <ToggleButton
+        android:id="@+id/cardButton17"
+        android:layout_width="169dp"
+        android:layout_height="217dp"
+        android:background="@drawable/check_cherry_rep"
+        android:textOff=" "
+        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/game_board_view"
+        app:layout_constraintTop_toTopOf="@+id/game_board_view"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <ToggleButton
+        android:id="@+id/cardButton18"
+        android:layout_width="169dp"
+        android:layout_height="217dp"
+        android:background="@drawable/check_faygo"
+        android:textOff=" "
+        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/game_board_view"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <ToggleButton
+        android:id="@+id/cardButton19"
+        android:layout_width="170dp"
+        android:layout_height="207dp"
+        android:background="@drawable/check_faygo"
+        android:textOff=" "
+        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
+        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/game_board_view"
+        app:layout_constraintTop_toTopOf="@+id/game_board_view"
+        app:layout_constraintVertical_bias="0.100000024" />
+
     <View
         android:id="@+id/scorecard_view"
         android:layout_width="0dp"
@@ -93,22 +91,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="336dp"
-        android:layout_height="312dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintStart_toStartOf="@+id/game_board_view"
-        app:layout_constraintTop_toTopOf="@+id/mem_match_title" />
-
     <TextView
         android:id="@+id/matches_text"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:text="Matches:"
+        android:text="@string/matches"
         android:textAlignment="textEnd"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
@@ -119,14 +107,15 @@
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="@id/scorecard_view"
         app:layout_constraintTop_toTopOf="@+id/scorecard_view"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.22"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/time_elapsed_text"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:text="Time Elapsed:"
+        android:text="@string/time_elapsed"
         android:textAlignment="textEnd"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
@@ -137,7 +126,8 @@
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="@+id/scorecard_view"
         app:layout_constraintTop_toTopOf="@+id/scorecard_view"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.75"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/timer_text"
@@ -145,9 +135,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="0:00:00"
+        android:text="@string/_0_00_00"
         android:textAllCaps="false"
-        android:textColor="#DC287B"
+        android:textColor="#FF0000"
         android:textSize="34sp"
         android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
@@ -155,7 +145,8 @@
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/time_elapsed_text"
         app:layout_constraintTop_toTopOf="@+id/scorecard_view"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.8"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/score_number_text"
@@ -163,8 +154,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="10"
-        android:textColor="#DC287B"
+        android:text="@string/_0"
+        android:textColor="#FF0000"
         android:textSize="34sp"
         android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
@@ -172,6 +163,25 @@
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@+id/matches_text"
         app:layout_constraintTop_toTopOf="@+id/scorecard_view"
-        app:layout_constraintVertical_bias="0.20999998" />
+        app:layout_constraintVertical_bias="0.20999998"
+        tools:ignore="TextContrastCheck" />
+
+    <com.gusakov.library.PulseCountDown
+        android:id="@+id/pulseCountDown"
+        android:layout_width="245dp"
+        android:layout_height="454dp"
+        android:drawableTint="#000000"
+        android:text="@string/_5"
+        android:textColor="#9F000000"
+        android:textSize="400sp"
+        android:translationZ="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084"
+        app:pc_startValue="5"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,61 +23,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ToggleButton
-        android:id="@+id/cardButton16"
-        android:layout_width="169dp"
-        android:layout_height="217dp"
-        android:background="@drawable/check_cherry_rep"
-        android:checked="false"
-        android:textColor="#212121"
-        android:textOff=" "
-        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="@+id/game_board_view"
-        app:layout_constraintTop_toTopOf="@+id/game_board_view"
-        app:layout_constraintVertical_bias="0.100000024"
-        tools:ignore="DuplicateSpeakableTextCheck" />
-
-
-    <ToggleButton
-        android:id="@+id/cardButton17"
-        android:layout_width="169dp"
-        android:layout_height="217dp"
-        android:background="@drawable/check_cherry_rep"
-        android:textOff=" "
-        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="@+id/game_board_view"
-        app:layout_constraintTop_toTopOf="@+id/game_board_view"
-        app:layout_constraintVertical_bias="0.9" />
-
-    <ToggleButton
-        android:id="@+id/cardButton18"
-        android:layout_width="169dp"
-        android:layout_height="217dp"
-        android:background="@drawable/check_faygo"
-        android:textOff=" "
-        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/game_board_view"
-        app:layout_constraintVertical_bias="0.9" />
-
-    <ToggleButton
-        android:id="@+id/cardButton19"
-        android:layout_width="170dp"
-        android:layout_height="207dp"
-        android:background="@drawable/check_faygo"
-        android:textOff=" "
-        app:layout_constraintBottom_toBottomOf="@+id/game_board_view"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_view"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="@+id/game_board_view"
-        app:layout_constraintTop_toTopOf="@+id/game_board_view"
-        app:layout_constraintVertical_bias="0.100000024" />
 
     <View
         android:id="@+id/scorecard_view"
@@ -183,5 +128,45 @@
         app:layout_constraintVertical_bias="0.084"
         app:pc_startValue="5"
         tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/test"
+        android:layout_width="226dp"
+        android:layout_height="303dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="396dp"
+        android:src="@drawable/card_back"
+        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/test4"
+        android:layout_width="226dp"
+        android:layout_height="303dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="116dp"
+        android:src="@drawable/card_back"
+        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/test3"
+        android:layout_width="226dp"
+        android:layout_height="303dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="96dp"
+        android:src="@drawable/card_back"
+        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/test2"
+        android:layout_width="226dp"
+        android:layout_height="303dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="396dp"
+        android:src="@drawable/card_back"
+        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,20 +53,20 @@ public class MainMenuFragment extends Fragment {
 
         // Gives buttons bounce animation "bubble button"
         final Animation myAnim = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
-
+        // Set then initialize the "bounce" here
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.15, 20);
         myAnim.setInterpolator(interpolator);
 
         playGameButton.startAnimation(myAnim);
 
+        // Countdown till next "bounce"
         new CountDownTimer(100000, 10000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 playGameButton.startAnimation(myAnim);
             }
             @Override
-            public void onFinish() {
-            }
+            public void onFinish() { }
         }.start();
 
         playGameButton.setOnClickListener(v ->

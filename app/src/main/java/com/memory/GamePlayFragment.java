@@ -1,6 +1,8 @@
 package com.memory;
 
-import android.app.Activity;
+import static androidx.navigation.Navigation.findNavController;
+
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,18 +12,16 @@ import androidx.navigation.Navigation;
 import com.gusakov.library.PulseCountDown;
 import com.gusakov.library.java.interfaces.OnCountdownCompleted;
 
-import android.os.CountDownTimer;
 import android.os.Handler;
-import android.util.Log;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Chronometer;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import android.widget.ImageView;
+import java.lang.reflect.Array;
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,9 +40,14 @@ public class GamePlayFragment extends Fragment {
     private String mParam2;
 
     NavController navController;
+    int numMatches = 0, match1, match2;
+    int flipped = 0;
+    TextView matches;
 
-    // Library of all cards available for use
-    private static Card[] allCards;
+    // Library of all images and buttons
+//    private static Card[] allCards;
+      int[] images = {R.drawable.gvsu,R.drawable.michigan_flag,R.drawable.lions,R.drawable.grand_rapids};
+      int[] imageViews = {R.id.test,R.id.test2};
 
     // Creating Timer
     Handler timeHandler = new Handler();
@@ -95,20 +100,157 @@ public class GamePlayFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
         timerText = view.findViewById(R.id.timer_text);
-        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDown);
 
-        pulseCountDown.bringToFront();
+        matches = view.findViewById(R.id.score_number_text);
+        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDown);
+        shuffle(images,4);
+
+        ImageView card1 = (ImageView) view.findViewById(R.id.test);
+        card1.setImageResource(R.drawable.card_back);
+        card1.setClickable(true);
+
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                card1.setImageResource(images[1]);
+
+               if(flipped == 0){
+                   match1 = 1;
+               }
+                if(flipped == 1){
+                    match2 = 1;
+                }
+                flipped++;
+                if (flipped == 2) {
+                    if (match1 == match2){
+                        numMatches++;
+                        matches.setText(String.valueOf(numMatches));
+                        card1.setVisibility(View.GONE);
+                        flipped = 0;
+                    }
+                    else
+                        card1.setImageResource(R.drawable.card_back);
+                }
+            };
+        });
+
+        ImageView card2 = (ImageView) view.findViewById(R.id.test2);
+        card2.setImageResource(R.drawable.card_back);
+        card2.setClickable(true);
+
+        card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                card2.setImageResource(images[1]);
+
+               if(flipped == 0){
+                   match1 = 1;
+               }
+               if(flipped == 1){
+                    match2 = 1;
+               }
+               flipped++;
+                if (flipped == 2) {
+                    if (match1 == match2){
+                        numMatches++;
+                        matches.setText(String.valueOf(numMatches));
+                        card2.setVisibility(View.GONE);
+                        flipped = 0;
+                    }
+                    else
+                        card2.setImageResource(R.drawable.card_back);
+                }
+            };
+        });
+
+        ImageView card4 = (ImageView) view.findViewById(R.id.test4);
+        card4.setImageResource(R.drawable.card_back);
+        card4.setClickable(true);
+
+        card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                card4.setImageResource(images[0]);
+
+               if(flipped == 0){
+                   match1 = 0;
+               }
+               if(flipped == 1){
+                    match2 = 0;
+               }
+               flipped++;
+                if (flipped == 2) {
+                    if (match1 == match2){
+                        numMatches++;
+                        matches.setText(String.valueOf(numMatches));
+                        card4.setVisibility(View.GONE);
+                        flipped = 0;
+                    }
+                    else
+                        card4.setImageResource(R.drawable.card_back);
+                }
+            };
+        });
+
+
+        ImageView card3 = (ImageView) view.findViewById(R.id.test3);
+        card3.setImageResource(R.drawable.card_back);
+        card3.setClickable(true);
+
+        card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                card3.setImageResource(images[0]);
+
+               if(flipped == 0){
+                   match1 = 0;
+               }
+               if(flipped == 1){
+                   match2 = 0;
+               }
+                flipped++;
+                if (flipped == 2) {
+                    if (match1 == match2){
+                        numMatches++;
+                        matches.setText(String.valueOf(numMatches));
+                        card3.setVisibility(View.GONE);
+                        flipped = 0;
+                    }
+                    else
+                        card3.setImageResource(R.drawable.card_back);
+                }
+            };
+        });
+
 
         pulseCountDown.start(new OnCountdownCompleted(  ) {
             @Override
             public void completed(  ) {
-                // What to do when countdown completes
+                // When countdown completes print GO!
+//                String string = getString(R.string.Go);
+//                pulseCountDown.setText(string);
             }
         } );
-
         timeHandler.postDelayed(timeRunnable,5500);
-    };
 
+
+
+    }
+
+    /****************************************************
+     * Creates new array
+     ***************************************************/
+    public void shuffle(int[] cards, int n){
+        Random random = new Random();
+
+        for (int i=0;i<n;i++){
+            int r = random.nextInt(n-i);
+
+            int temp = cards[r];
+            cards[r] = cards[i];
+            cards[i] = temp;
+        }
+    }
 
     /****************************************************
      * Creates Runnable object that constantly updates
@@ -123,16 +265,21 @@ public class GamePlayFragment extends Fragment {
             long millis = System.currentTimeMillis() - (startTime);
             int seconds = (int) (millis / 1000);
             int minutes = seconds / 60;
-            millis = millis % 1000;
+            millis = millis % 100;
 
             seconds = seconds % 60;
             timeHandler.postDelayed(this, 0);
-            timerText.setText(String.format("%d:%02d:%03d", minutes, seconds, millis));
+            timerText.setText(String.format("%d:%02d:%02d", minutes, seconds, millis));
         }
     };
 
-
-
+//    final Handler handler = new Handler();
+//    handler.postDelayed(new Runnable() {
+//        @Override
+//        public void run() {
+//            //Do something after 2s
+//        }
+//    }, 2000);
 
 
 

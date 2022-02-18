@@ -1,8 +1,8 @@
 package com.memory;
 
 class MyBounceInterpolator implements android.view.animation.Interpolator {
-    private double mAmplitude = 1;
-    private double mFrequency = 10;
+    private final double mAmplitude;
+    private final double mFrequency;
 
     MyBounceInterpolator(double amplitude, double frequency) {
         mAmplitude = amplitude;

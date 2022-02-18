@@ -28,9 +28,9 @@
         tools:layout="@layout/fragment_game_play" />
     <fragment
         android:id="@+id/subMenu_Single"
-        android:name="com.memory.SubMenu_Single"
+        android:name="com.memory.SubMenu"
         android:label="fragment_sub_menu__single"
-        tools:layout="@layout/fragment_sub_menu__single" >
+        tools:layout="@layout/fragment_sub_menu" >
         <action
             android:id="@+id/action_subMenu_Single_to_gamePlayFragment"
             app:destination="@id/gamePlayFragment"

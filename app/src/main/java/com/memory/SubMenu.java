@@ -17,10 +17,10 @@ import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SubMenu_Single#newInstance} factory method to
+ * Use the {@link SubMenu#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SubMenu_Single extends Fragment {
+public class SubMenu extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +36,7 @@ public class SubMenu_Single extends Fragment {
     Button timeTrialButton;
     NavController navController;
 
-    public SubMenu_Single() {
+    public SubMenu() {
         // Required empty public constructor
     }
 
@@ -49,8 +49,8 @@ public class SubMenu_Single extends Fragment {
      * @return A new instance of fragment SubMenu_Single.
      */
     // TODO: Rename and change types and number of parameters
-    public static SubMenu_Single newInstance(String param1, String param2) {
-        SubMenu_Single fragment = new SubMenu_Single();
+    public static SubMenu newInstance(String param1, String param2) {
+        SubMenu fragment = new SubMenu();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,7 +71,7 @@ public class SubMenu_Single extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sub_menu__single, container, false);
+        return inflater.inflate(R.layout.fragment_sub_menu, container, false);
 
     }
 

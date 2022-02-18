@@ -1,7 +1,6 @@
 package com.memory;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
 
 import android.os.Bundle;
 

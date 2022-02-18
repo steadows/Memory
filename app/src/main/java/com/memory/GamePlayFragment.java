@@ -1,8 +1,6 @@
 package com.memory;
 
-import static androidx.navigation.Navigation.findNavController;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,7 +8,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.gusakov.library.PulseCountDown;
-import com.gusakov.library.java.interfaces.OnCountdownCompleted;
 
 import android.os.CountDownTimer;
 import android.view.animation.Animation;
@@ -22,9 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.ImageView;
-
-import java.util.Objects;
 import java.util.Random;
+
 
 public class GamePlayFragment extends Fragment {
 
@@ -97,14 +93,18 @@ public class GamePlayFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
+        setCardsNotClick();
 
         // Assign to variables
         timerText = view.findViewById(R.id.timer_text);
         matches = view.findViewById(R.id.score_number_text);
         PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDown);
 
-        flipAllCards();
-        setCardsClick();
+        // Initial Countdown when starting the game
+        pulseCountDown.start(this::flipAllCards);
+
+        timeHandler.postDelayed(timeRunnable,5500);
+
         shuffle(images, cardDeck.length);
         shuffle(images, cardDeck.length);
 
@@ -124,17 +124,6 @@ public class GamePlayFragment extends Fragment {
         card5.setOnClickListener(v -> checkMatch(card5, images[2], 2));
         card6.setOnClickListener(v -> checkMatch(card6, images[2], 2));
 
-        // Initial Countdown when starting the game
-        pulseCountDown.start(new OnCountdownCompleted(  ) {
-            @Override
-            public void completed(  ) {
-                // When countdown completes do something
-//                String string = getString(R.string.Go);
-//                pulseCountDown.setText(string);
-            }
-        } );
-
-        timeHandler.postDelayed(timeRunnable,5500);
     }
 
     /***********************************************************
@@ -143,7 +132,7 @@ public class GamePlayFragment extends Fragment {
      ***********************************************************/
     public void checkMatch(ImageView currCard, int image, int value){
         currCard.setImageResource(image);
-        currCard.setClickable(false);
+        currCard.setEnabled(false);
 
         if(flipped == 0) {
             match1 = value;
@@ -164,7 +153,7 @@ public class GamePlayFragment extends Fragment {
             if (match1 != match2){
                 new CountDownTimer(2000, 1000) {
                     @Override
-                    public void onTick(long millisUntilFinished) { };
+                    public void onTick(long millisUntilFinished) { }
                     @Override
                     public void onFinish() { flipAllCards();} }.start();
                 prevCard = currCard;
@@ -228,7 +217,7 @@ public class GamePlayFragment extends Fragment {
         ImageView cardTemp;
         for (int j : cardDeck) {
             cardTemp = requireActivity().findViewById(j);
-            cardTemp.setClickable(true);
+            cardTemp.setEnabled(true);
         }
     }
 
@@ -239,9 +228,26 @@ public class GamePlayFragment extends Fragment {
         ImageView cardTemp;
         for (int j : cardDeck) {
             cardTemp = requireActivity().findViewById(j);
-            cardTemp.setClickable(false);
+            cardTemp.setEnabled(false);
         }
     }
+
+    /****************************************************
+     * Sets all ImageViews being used to un-clickable
+     ***************************************************/
+    public interface sendDataInterface{
+
+
+    }
+
+
+
+//    public void sendInfo(){
+//        Bundle bundle = new Bundle();
+//        bundle.putString("key", String.valueOf(matches));
+//        CompletionScreen fragment= new CompletionScreen();
+//        fragment.setArguments(bundle);
+//    }
 
 
     /****************************************************

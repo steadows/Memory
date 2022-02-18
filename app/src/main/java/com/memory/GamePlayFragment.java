@@ -12,22 +12,20 @@ import androidx.navigation.Navigation;
 import com.gusakov.library.PulseCountDown;
 import com.gusakov.library.java.interfaces.OnCountdownCompleted;
 
+import android.os.CountDownTimer;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+
 import android.os.Handler;
-import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ImageView;
-import java.lang.reflect.Array;
+
+import java.util.Objects;
 import java.util.Random;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GamePlayFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class GamePlayFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -40,20 +38,21 @@ public class GamePlayFragment extends Fragment {
     private String mParam2;
 
     NavController navController;
-    int numMatches = 0, match1, match2;
-    int flipped = 0;
-    TextView matches;
+    int numMatches = 0, flipped = 0, match1, match2;
+    ImageView prevCard;
 
-    // Library of all images and buttons
-//    private static Card[] allCards;
-      int[] images = {R.drawable.gvsu,R.drawable.michigan_flag,R.drawable.lions,R.drawable.grand_rapids};
-      int[] imageViews = {R.id.test,R.id.test2};
+    // Library of all Images and Cards
+    int[] images = {R.drawable.louie,R.drawable.michigan_flag,R.drawable.lions,R.drawable.grand_rapids,R.drawable.cherry_farm,R.drawable.detroit_statue1};
+    int[] cardDeck = {R.id.card1,R.id.card2,R.id.card3,R.id.card4,R.id.card5,R.id.card6};
 
     // Creating Timer
     Handler timeHandler = new Handler();
     long startTime;
     Boolean firstStart = true;
+
+    // Variables to link the widgets on screen
     TextView timerText;
+    TextView matches;
 
     public GamePlayFragment() {
         // Required empty public constructor
@@ -86,7 +85,6 @@ public class GamePlayFragment extends Fragment {
         }
      }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -99,146 +97,113 @@ public class GamePlayFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        timerText = view.findViewById(R.id.timer_text);
 
+        // Assign to variables
+        timerText = view.findViewById(R.id.timer_text);
         matches = view.findViewById(R.id.score_number_text);
         PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDown);
-        shuffle(images,4);
 
-        ImageView card1 = (ImageView) view.findViewById(R.id.test);
-        card1.setImageResource(R.drawable.card_back);
-        card1.setClickable(true);
+        flipAllCards();
+        setCardsClick();
+        shuffle(images, cardDeck.length);
+        shuffle(images, cardDeck.length);
 
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                card1.setImageResource(images[1]);
+        // Assign Images to variables
+        ImageView card1 = view.findViewById(R.id.card1);
+        ImageView card2 = view.findViewById(R.id.card2);
+        ImageView card3 = view.findViewById(R.id.card3);
+        ImageView card4 = view.findViewById(R.id.card4);
+        ImageView card5 = view.findViewById(R.id.card5);
+        ImageView card6 = view.findViewById(R.id.card6);
 
-               if(flipped == 0){
-                   match1 = 1;
-               }
-                if(flipped == 1){
-                    match2 = 1;
-                }
-                flipped++;
-                if (flipped == 2) {
-                    if (match1 == match2){
-                        numMatches++;
-                        matches.setText(String.valueOf(numMatches));
-                        card1.setVisibility(View.GONE);
-                        flipped = 0;
-                    }
-                    else
-                        card1.setImageResource(R.drawable.card_back);
-                }
-            };
-        });
+        // Listen for click
+        card1.setOnClickListener(v -> checkMatch(card1, images[1], 1));
+        card2.setOnClickListener(v -> checkMatch(card2, images[1], 1));
+        card3.setOnClickListener(v -> checkMatch(card3, images[0], 0));
+        card4.setOnClickListener(v -> checkMatch(card4, images[0], 0));
+        card5.setOnClickListener(v -> checkMatch(card5, images[2], 2));
+        card6.setOnClickListener(v -> checkMatch(card6, images[2], 2));
 
-        ImageView card2 = (ImageView) view.findViewById(R.id.test2);
-        card2.setImageResource(R.drawable.card_back);
-        card2.setClickable(true);
-
-        card2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                card2.setImageResource(images[1]);
-
-               if(flipped == 0){
-                   match1 = 1;
-               }
-               if(flipped == 1){
-                    match2 = 1;
-               }
-               flipped++;
-                if (flipped == 2) {
-                    if (match1 == match2){
-                        numMatches++;
-                        matches.setText(String.valueOf(numMatches));
-                        card2.setVisibility(View.GONE);
-                        flipped = 0;
-                    }
-                    else
-                        card2.setImageResource(R.drawable.card_back);
-                }
-            };
-        });
-
-        ImageView card4 = (ImageView) view.findViewById(R.id.test4);
-        card4.setImageResource(R.drawable.card_back);
-        card4.setClickable(true);
-
-        card4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                card4.setImageResource(images[0]);
-
-               if(flipped == 0){
-                   match1 = 0;
-               }
-               if(flipped == 1){
-                    match2 = 0;
-               }
-               flipped++;
-                if (flipped == 2) {
-                    if (match1 == match2){
-                        numMatches++;
-                        matches.setText(String.valueOf(numMatches));
-                        card4.setVisibility(View.GONE);
-                        flipped = 0;
-                    }
-                    else
-                        card4.setImageResource(R.drawable.card_back);
-                }
-            };
-        });
-
-
-        ImageView card3 = (ImageView) view.findViewById(R.id.test3);
-        card3.setImageResource(R.drawable.card_back);
-        card3.setClickable(true);
-
-        card3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                card3.setImageResource(images[0]);
-
-               if(flipped == 0){
-                   match1 = 0;
-               }
-               if(flipped == 1){
-                   match2 = 0;
-               }
-                flipped++;
-                if (flipped == 2) {
-                    if (match1 == match2){
-                        numMatches++;
-                        matches.setText(String.valueOf(numMatches));
-                        card3.setVisibility(View.GONE);
-                        flipped = 0;
-                    }
-                    else
-                        card3.setImageResource(R.drawable.card_back);
-                }
-            };
-        });
-
-
+        // Initial Countdown when starting the game
         pulseCountDown.start(new OnCountdownCompleted(  ) {
             @Override
             public void completed(  ) {
-                // When countdown completes print GO!
+                // When countdown completes do something
 //                String string = getString(R.string.Go);
 //                pulseCountDown.setText(string);
             }
         } );
+
         timeHandler.postDelayed(timeRunnable,5500);
+    }
+
+    /***********************************************************
+     * Checks to see if match. If theres a match call match
+     * function, else set all pictures to the back of the card
+     ***********************************************************/
+    public void checkMatch(ImageView currCard, int image, int value){
+        currCard.setImageResource(image);
+
+        if(flipped == 0) {
+            match1 = value;
+            prevCard = currCard;
+        }
+        if(flipped == 1) {
+            match2 = value;
+        }
+
+        flipped++;
+
+        if (flipped >= 2) {
+            if (match1 == match2){
+                matchFound(currCard,prevCard);
+                }
+            if (match1 != match2){
+                new CountDownTimer(2000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) { };
+                    @Override
+                    public void onFinish() { flipAllCards();} }.start();
+                prevCard = currCard;
+                flipped = 0;
+                }
+        }
+    }
 
 
+    /****************************************************
+     * Match is found - remove both selected cards and
+     * reset variables
+     ***************************************************/
+    public void matchFound(ImageView currCard, ImageView prevCard){
+        Animation Fade = AnimationUtils.loadAnimation(getActivity(),R.anim.fade_out);
 
+        numMatches++;
+        matches.setText(String.valueOf(numMatches));
+
+        currCard.startAnimation(Fade);
+        currCard.setVisibility(View.GONE);
+        currCard.setClickable(false);
+        prevCard.startAnimation(Fade);
+        prevCard.setVisibility(View.GONE);
+        prevCard.setClickable(false);
+
+        flipped = 0;
     }
 
     /****************************************************
-     * Creates new array
+     * Set all card pictures to back-of-card
+     ***************************************************/
+    public void flipAllCards(){
+        ImageView cardTemp;
+        for (int j : cardDeck) {
+            cardTemp = requireActivity().findViewById(j);
+            cardTemp.setImageResource(R.drawable.card_back);
+        }
+    }
+
+    /****************************************************
+     * Changes index of array to "shuffle cards"
      ***************************************************/
     public void shuffle(int[] cards, int n){
         Random random = new Random();
@@ -249,6 +214,17 @@ public class GamePlayFragment extends Fragment {
             int temp = cards[r];
             cards[r] = cards[i];
             cards[i] = temp;
+        }
+    }
+
+    /****************************************************
+     * Sets all ImageViews being used to clickable
+     ***************************************************/
+    private void setCardsClick() {
+        ImageView cardTemp;
+        for (int j : cardDeck) {
+            cardTemp = (ImageView) requireActivity().findViewById(j);
+            cardTemp.setClickable(true);
         }
     }
 
@@ -272,16 +248,6 @@ public class GamePlayFragment extends Fragment {
             timerText.setText(String.format("%d:%02d:%02d", minutes, seconds, millis));
         }
     };
-
-//    final Handler handler = new Handler();
-//    handler.postDelayed(new Runnable() {
-//        @Override
-//        public void run() {
-//            //Do something after 2s
-//        }
-//    }, 2000);
-
-
 
 
 }

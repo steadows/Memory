@@ -34,7 +34,6 @@ public class MainMenuFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -53,6 +52,7 @@ public class MainMenuFragment extends Fragment {
 
         // Gives buttons bounce animation "bubble button"
         final Animation myAnim = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+
         // Set then initialize the "bounce" here
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.15, 20);
         myAnim.setInterpolator(interpolator);

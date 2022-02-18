@@ -130,43 +130,63 @@
         tools:ignore="TextContrastCheck" />
 
     <ImageView
-        android:id="@+id/test"
-        android:layout_width="226dp"
-        android:layout_height="303dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="396dp"
+        android:id="@+id/card1"
+        android:layout_width="130dp"
+        android:layout_height="170dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="516dp"
         android:src="@drawable/card_back"
         app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/test4"
-        android:layout_width="226dp"
-        android:layout_height="303dp"
-        android:layout_marginEnd="188dp"
-        android:layout_marginBottom="116dp"
+        android:id="@+id/card2"
+        android:layout_width="130dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="328dp"
+        android:src="@drawable/card_back"
+        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/card6"
+        android:layout_width="130dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="140dp"
+        android:src="@drawable/card_back"
+        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/card5"
+        android:layout_width="130dp"
+        android:layout_height="170dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="140dp"
         android:src="@drawable/card_back"
         app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/test3"
-        android:layout_width="226dp"
-        android:layout_height="303dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="96dp"
+        android:id="@+id/card3"
+        android:layout_width="130dp"
+        android:layout_height="170dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="332dp"
         android:src="@drawable/card_back"
-        app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/test2"
-        android:layout_width="226dp"
-        android:layout_height="303dp"
-        android:layout_marginEnd="188dp"
-        android:layout_marginBottom="396dp"
+        android:id="@+id/card4"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="516dp"
         android:src="@drawable/card_back"
         app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

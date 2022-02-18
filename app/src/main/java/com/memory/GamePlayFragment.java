@@ -19,6 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.ImageView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 
@@ -116,13 +120,44 @@ public class GamePlayFragment extends Fragment {
         ImageView card5 = view.findViewById(R.id.card5);
         ImageView card6 = view.findViewById(R.id.card6);
 
+        ImageView[] cardArrParents = {card1, card3, card5};
+        ImageView[] cardArrChild = {card2, card4, card6};
+
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        nums.add(0);
+        nums.add(1);
+        nums.add(2);
+
+        Map<ImageView, Integer> cardParents = new HashMap<ImageView, Integer>();
+        Map<ImageView, Integer> cardChildren = new HashMap<ImageView, Integer>();
+
+        for (int i = 0; i < 3; i++) {
+
+            Random random = new Random();
+            int r = random.nextInt(nums.size());
+            cardParents.put(cardArrParents[i], nums.get(r));
+            nums.remove(r);
+        }
+
+        nums.add(0);
+        nums.add(1);
+        nums.add(2);
+
+        for (int i = 0; i < 3; i++) {
+
+            Random random = new Random();
+            int r = random.nextInt(nums.size());
+            cardChildren.put(cardArrChild[i], nums.get(r));
+            nums.remove(r);
+        }
+
         // Listen for click
-        card1.setOnClickListener(v -> checkMatch(card1, images[1], 1));
-        card2.setOnClickListener(v -> checkMatch(card2, images[1], 1));
-        card3.setOnClickListener(v -> checkMatch(card3, images[0], 0));
-        card4.setOnClickListener(v -> checkMatch(card4, images[0], 0));
-        card5.setOnClickListener(v -> checkMatch(card5, images[2], 2));
-        card6.setOnClickListener(v -> checkMatch(card6, images[2], 2));
+        card1.setOnClickListener(v -> checkMatch(card1, images[cardParents.get(card1)], cardParents.get(card1)));
+        card2.setOnClickListener(v -> checkMatch(card2, images[cardChildren.get(card2)], cardChildren.get(card2)));
+        card3.setOnClickListener(v -> checkMatch(card3, images[cardParents.get(card3)], cardParents.get(card3)));
+        card4.setOnClickListener(v -> checkMatch(card4, images[cardChildren.get(card4)], cardChildren.get(card4)));
+        card5.setOnClickListener(v -> checkMatch(card5, images[cardParents.get(card5)], cardParents.get(card5)));
+        card6.setOnClickListener(v -> checkMatch(card6, images[cardChildren.get(card6)], cardChildren.get(card6)));
 
     }
 

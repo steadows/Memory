@@ -143,6 +143,7 @@ public class GamePlayFragment extends Fragment {
      ***********************************************************/
     public void checkMatch(ImageView currCard, int image, int value){
         currCard.setImageResource(image);
+        currCard.setClickable(false);
 
         if(flipped == 0) {
             match1 = value;
@@ -155,8 +156,10 @@ public class GamePlayFragment extends Fragment {
         flipped++;
 
         if (flipped >= 2) {
+            setCardsNotClick();
             if (match1 == match2){
                 matchFound(currCard,prevCard);
+                setCardsClick();
                 }
             if (match1 != match2){
                 new CountDownTimer(2000, 1000) {
@@ -200,6 +203,7 @@ public class GamePlayFragment extends Fragment {
             cardTemp = requireActivity().findViewById(j);
             cardTemp.setImageResource(R.drawable.card_back);
         }
+        setCardsClick();
     }
 
     /****************************************************
@@ -223,10 +227,22 @@ public class GamePlayFragment extends Fragment {
     private void setCardsClick() {
         ImageView cardTemp;
         for (int j : cardDeck) {
-            cardTemp = (ImageView) requireActivity().findViewById(j);
+            cardTemp = requireActivity().findViewById(j);
             cardTemp.setClickable(true);
         }
     }
+
+    /****************************************************
+     * Sets all ImageViews being used to un-clickable
+     ***************************************************/
+    private void setCardsNotClick() {
+        ImageView cardTemp;
+        for (int j : cardDeck) {
+            cardTemp = requireActivity().findViewById(j);
+            cardTemp.setClickable(false);
+        }
+    }
+
 
     /****************************************************
      * Creates Runnable object that constantly updates

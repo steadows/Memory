@@ -34,4 +34,7 @@
     <string name="_0_00_00">0:00:00</string>
     <string name="title_underline">Title Underline</string>
     <string name="playing_card">Playing Card</string>
+    <string name="completed_time">Completed Time</string>
+    <string name="back_to_menu">Back to Menu</string>
+    <string name="sets_scrren_back_to_submenu">sets scrren back to submenu</string>
 </resources>

@@ -125,8 +125,27 @@ public class GamePlayFragment extends Fragment {
         ImageView card5 = view.findViewById(R.id.card5);
         ImageView card6 = view.findViewById(R.id.card6);
 
-        ImageView[] cardArrParents = {card1, card3, card5};
-        ImageView[] cardArrChild = {card2, card4, card6};
+        ArrayList<ImageView> cards = new ArrayList<>();
+        ImageView[] cardArrParents = new ImageView[3];
+        ImageView[] cardArrChild = new ImageView[3];
+
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+        cards.add(card4);
+        cards.add(card5);
+        cards.add(card6);
+
+        for (int i = 0; i < 3; i++){
+            Random random = new Random();
+            int r = random.nextInt(cards.size());
+            cardArrParents[i] = cards.get(r);
+            cards.remove(r);
+        }
+
+        for (int i = 0; i < 3; i++){
+            cardArrChild[i] = cards.get(i);
+        }
 
         ArrayList<Integer> nums = new ArrayList<>();
         nums.add(0);
@@ -156,13 +175,12 @@ public class GamePlayFragment extends Fragment {
             nums.remove(r);
         }
 
-        // Listen for click
-        card1.setOnClickListener(v -> checkMatch(card1, images[cardParents.get(card1)], cardParents.get(card1)));
-        card2.setOnClickListener(v -> checkMatch(card2, images[cardChildren.get(card2)], cardChildren.get(card2)));
-        card3.setOnClickListener(v -> checkMatch(card3, images[cardParents.get(card3)], cardParents.get(card3)));
-        card4.setOnClickListener(v -> checkMatch(card4, images[cardChildren.get(card4)], cardChildren.get(card4)));
-        card5.setOnClickListener(v -> checkMatch(card5, images[cardParents.get(card5)], cardParents.get(card5)));
-        card6.setOnClickListener(v -> checkMatch(card6, images[cardChildren.get(card6)], cardChildren.get(card6)));
+        for (ImageView key : cardParents.keySet()) {
+            key.setOnClickListener(v -> checkMatch(key, images[cardParents.get(key)], cardParents.get(key)));
+        }
+        for (ImageView key : cardChildren.keySet()) {
+            key.setOnClickListener(v -> checkMatch(key, images[cardChildren.get(key)], cardChildren .get(key)));
+        }
     }
 
     /***********************************************************

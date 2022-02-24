@@ -234,6 +234,9 @@ public class GamePlayFragment extends Fragment {
         matches.setText(String.valueOf(numMatches));
 
         if (numMatches == cardDeck.length/2){
+            Bundle bundle = new Bundle();
+            bundle.putInt(ARG_PARAM1, numMatches);
+            setArguments(bundle);
             navController.navigate(R.id.finishedFragment);
         }
 

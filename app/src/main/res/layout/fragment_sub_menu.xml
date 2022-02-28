@@ -9,13 +9,24 @@
     tools:context=".SubMenu"
     tools:visibility="visible">
 
+    <ImageView
+        android:id="@+id/curtainImage"
+        android:layout_width="463dp"
+        android:layout_height="813dp"
+        android:layout_marginBottom="38dp"
+        android:contentDescription="@string/cutain_background_image"
+        android:src="@drawable/curtain"
+        app:layout_constraintBottom_toTopOf="@+id/Instruction_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/Traditional_button"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="230dp"
         android:layout_height="115dp"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="272dp"
         android:hapticFeedbackEnabled="true"
         android:stateListAnimator="@android:anim/bounce_interpolator"
         android:text="@string/traditional_mode"
@@ -46,9 +57,24 @@
         android:hapticFeedbackEnabled="true"
         android:text="@string/click_here_to_learn_how_to_play"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#0B0A0A"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="294dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="1dp"
+        android:contentDescription="@string/choose_level"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

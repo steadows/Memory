@@ -59,7 +59,7 @@
         tools:layout="@layout/fragment_instruction" />
     <fragment
         android:id="@+id/finishedFragment"
-        android:name="com.memory.finishedFragment"
+        android:name="com.memory.FinishedFragment"
         android:label="fragment_finished"
         tools:layout="@layout/fragment_finished" >
         <action

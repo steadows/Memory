@@ -56,6 +56,9 @@ public class GamePlayFragment extends Fragment {
     long startTime;
     Boolean firstStart = true;
 
+    // Variable to hold user's score
+    long timerScore;
+
     // Variables to link the widgets on screen
     TextView timerText;
     TextView matches;
@@ -225,7 +228,7 @@ public class GamePlayFragment extends Fragment {
      * Match is found - remove both selected cards and
      * reset variables. If last match move to next screen
      * @param currCard - second card selected
-     * @param  prevCard - first card selected
+     * @param prevCard - first card selected
      ******************************************************/
     public void matchFound(ImageView currCard, ImageView prevCard) {
         Animation fade = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
@@ -234,9 +237,13 @@ public class GamePlayFragment extends Fragment {
         matches.setText(String.valueOf(numMatches));
 
         if (numMatches == cardDeck.length/2){
-            Bundle bundle = new Bundle();
-            bundle.putInt(ARG_PARAM1, numMatches);
-            setArguments(bundle);
+            // Send score to end screen if all matches are made
+            // Time is sent in elapsed milliseconds
+            // TODO: Send timer data to FinishedFragment
+            Bundle score = new Bundle();
+            score.putLong("timerScore", timerScore);
+            getParentFragmentManager().setFragmentResult("timerScore", score);
+
             navController.navigate(R.id.finishedFragment);
         }
 
@@ -311,13 +318,16 @@ public class GamePlayFragment extends Fragment {
                 firstStart = false;
             }
             long millis = System.currentTimeMillis() - (startTime);
+            timerScore = millis;
+
             int seconds = (int) (millis / 1000);
             int minutes = seconds / 60;
             millis = millis % 100;
 
             seconds = seconds % 60;
             timeHandler.postDelayed(this, 0);
-            timerText.setText(String.format(Locale.getDefault(), "%d:%02d:%02d", minutes, seconds, millis));
+            timerText.setText(String.format(Locale.getDefault(),
+                    "%d:%02d:%02d", minutes, seconds, millis));
         }
     };
 

@@ -4,7 +4,9 @@ import static androidx.navigation.Navigation.findNavController;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -14,16 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link finishedFragment#newInstance} factory method to
+ * Use the {@link FinishedFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class finishedFragment extends Fragment {
+public class FinishedFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +37,11 @@ public class finishedFragment extends Fragment {
     private int mParam1;
     private String mParam2;
 
-    public finishedFragment() {
+    // User's time in milliseconds
+    private long userTimeScore;
+    private TextView score;
+
+    public FinishedFragment() {
         // Required empty public constructor
     }
 
@@ -47,8 +54,8 @@ public class finishedFragment extends Fragment {
      * @return A new instance of fragment finishedFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static finishedFragment newInstance(String param1, String param2) {
-        finishedFragment fragment = new finishedFragment();
+    public static FinishedFragment newInstance(String param1, String param2) {
+        FinishedFragment fragment = new FinishedFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +66,25 @@ public class finishedFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Listen for a score to be sent from GamePlayFragment
+        getParentFragmentManager().setFragmentResultListener("timerScore",
+                this, (requestKey, result) -> {
+                    userTimeScore = result.getLong("timerScore");
+
+                    if (userTimeScore > 0) {
+                        long millis = userTimeScore;
+                        int minutes = (int) (millis / 60000);
+                        millis = millis - (minutes * 60000L);
+                        int seconds = (int) (millis / 1000);
+                        millis = millis - (seconds * 1000L);
+                        millis = Math.round(millis / 10.0);
+                        score.setText(String.format(Locale.getDefault(),
+                                "%02d:%02d:%02d", minutes, seconds, millis));
+                    }
+
+                });
+
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
             //mParam2 = getArguments().getString(ARG_PARAM2);
@@ -77,10 +103,11 @@ public class finishedFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Initialize components
         NavController navController = Navigation.findNavController(view);
         ImageView backButton = view.findViewById(R.id.back_button);
-        TextView score = view.findViewById(R.id.score);
         TextView buttonText = view.findViewById(R.id.back_button_text);
+        score = view.findViewById(R.id.score);
 
         // Initialize animations
         final Animation bounce = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);

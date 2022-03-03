@@ -4,6 +4,7 @@ import static androidx.navigation.Navigation.findNavController;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -14,23 +15,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MainMenuFragment extends Fragment {
 
-    Button playGameButton;
+    ImageView playGameButton;
+    TextView playGameText;
     NavController navController;
 
     public MainMenuFragment() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -41,33 +36,35 @@ public class MainMenuFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState){
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
         playGameButton = view.findViewById(R.id.play_game_button);
+        playGameText = view.findViewById(R.id.Play_button_text);
 
         // Gives buttons bounce animation "bubble button"
-        final Animation myAnim = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+        final Animation bounce = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
 
         // Set then initialize the "bounce" here
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.15, 20);
-        myAnim.setInterpolator(interpolator);
+        bounce.setInterpolator(interpolator);
 
-        playGameButton.startAnimation(myAnim);
+        playGameButton.startAnimation(bounce);
+        playGameText.startAnimation(bounce);
 
         // Countdown till next "bounce"
         new CountDownTimer(100000, 10000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                playGameButton.startAnimation(myAnim);
+                playGameButton.startAnimation(bounce);
+                playGameText.startAnimation(bounce);
             }
             @Override
-            public void onFinish() { }
+            public void onFinish() { /* Do nothing when countdown ends */ }
         }.start();
 
         playGameButton.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_mainMenuFragment_to_subMenu_Single));
     }
-
 }

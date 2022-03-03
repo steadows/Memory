@@ -14,37 +14,11 @@
         android:layout_width="463dp"
         android:layout_height="813dp"
         android:layout_marginBottom="38dp"
-        android:contentDescription="@string/cutain_background_image"
+        android:contentDescription="@string/curtain_background_image"
         android:src="@drawable/curtain"
         app:layout_constraintBottom_toTopOf="@+id/Instruction_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/Traditional_button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="230dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="272dp"
-        android:hapticFeedbackEnabled="true"
-        android:stateListAnimator="@android:anim/bounce_interpolator"
-        android:text="@string/traditional_mode"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/TimeTrialMode_Button"
-        android:layout_width="230dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="76dp"
-        android:hapticFeedbackEnabled="true"
-        android:text="@string/time_trial_mode"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Traditional_button" />
 
     <Button
         android:id="@+id/Instruction_button"
@@ -70,10 +44,82 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="196dp"
         android:layout_marginEnd="1dp"
+        android:backgroundTint="#000000"
         android:contentDescription="@string/choose_level"
+        android:popupBackground="#6ba7e3"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/Traditional_button"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="83dp"
+        android:contentDescription="@string/sets_screen_back_to_submenu"
+        android:src="@drawable/purple_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <ImageView
+        android:id="@+id/Time_trial_button"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="83dp"
+        android:contentDescription="@string/sets_screen_back_to_submenu"
+        android:src="@drawable/purple_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Traditional_button"
+        app:layout_constraintVertical_bias="0.591" />
+
+    <TextView
+        android:id="@+id/traditional_mode_text"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="@string/traditional_mode"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479" />
+
+    <TextView
+        android:id="@+id/time_trial_text"
+        android:layout_width="251dp"
+        android:layout_height="37dp"
+        android:text="@string/back_to_main_menu"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Time_trial_button"
+        app:layout_constraintEnd_toEndOf="@+id/Time_trial_button"
+        app:layout_constraintStart_toStartOf="@+id/Time_trial_button"
+        app:layout_constraintTop_toTopOf="@+id/Time_trial_button" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:text="@string/choose_difficulty"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

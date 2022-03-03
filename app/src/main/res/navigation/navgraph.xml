@@ -51,12 +51,29 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_gameHardFragment"
+            app:destination="@id/gameHardFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_gameMediumFragment"
+            app:destination="@id/gameMediumFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
         android:name="com.memory.InstructionFragment"
         android:label="fragment_instruction"
-        tools:layout="@layout/fragment_instruction" />
+        tools:layout="@layout/fragment_instruction" >
+        <action
+            android:id="@+id/action_instructionFragment_to_subMenu_Single"
+            app:destination="@id/subMenu_Single" />
+    </fragment>
     <fragment
         android:id="@+id/finishedFragment"
         android:name="com.memory.FinishedFragment"
@@ -70,6 +87,28 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/subMenu_Single" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameHardFragment"
+        android:name="com.memory.GameHardFragment"
+        android:label="fragment_game_hard"
+        tools:layout="@layout/fragment_game_hard" >
+        <action
+            android:id="@+id/action_gameHardFragment_to_finishedFragment"
+            app:destination="@id/finishedFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameMediumFragment"
+        android:name="com.memory.GameMediumFragment"
+        android:label="fragment_game_medium"
+        tools:layout="@layout/fragment_game_medium" >
+        <action
+            android:id="@+id/action_gameMediumFragment_to_finishedFragment"
+            app:destination="@id/finishedFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
 
 </navigation>

@@ -1,15 +1,10 @@
 package com.memory;
 
-import static androidx.navigation.Navigation.findNavController;
 
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,21 +16,10 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FinishedFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FinishedFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private int mParam1;
-    private String mParam2;
+    ImageView backButton;
+    TextView buttonText;
 
     // User's time in milliseconds
     private long userTimeScore;
@@ -43,24 +27,6 @@ public class FinishedFragment extends Fragment {
 
     public FinishedFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment finishedFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FinishedFragment newInstance(String param1, String param2) {
-        FinishedFragment fragment = new FinishedFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -82,13 +48,7 @@ public class FinishedFragment extends Fragment {
                         score.setText(String.format(Locale.getDefault(),
                                 "%02d:%02d:%02d", minutes, seconds, millis));
                     }
-
                 });
-
-        if (getArguments() != null) {
-            mParam1 = getArguments().getInt(ARG_PARAM1);
-            //mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -96,17 +56,15 @@ public class FinishedFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_finished, container, false);
-
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         // Initialize components
-        NavController navController = Navigation.findNavController(view);
-        ImageView backButton = view.findViewById(R.id.back_button);
-        TextView buttonText = view.findViewById(R.id.back_button_text);
+        backButton = view.findViewById(R.id.back_button);
+        buttonText = view.findViewById(R.id.back_button_text);
         score = view.findViewById(R.id.score);
 
         // Initialize animations
@@ -121,6 +79,9 @@ public class FinishedFragment extends Fragment {
         buttonText.startAnimation(bounce);
         score.startAnimation(blink);
 
+        backButton.setOnClickListener((v ->
+                Navigation.findNavController(v).navigate(R.id.action_finishedFragment_to_subMenu_Single)));
+
         // Countdown till next "bounce"
         new CountDownTimer(100000, 6000) {
             @Override
@@ -129,11 +90,7 @@ public class FinishedFragment extends Fragment {
                 backButton.startAnimation(bounce);
             }
             @Override
-            public void onFinish() { }
+            public void onFinish() { /* Do nothing, countdown will never reach */ }
         }.start();
-
-        backButton.setOnClickListener((v ->
-                findNavController(v).navigate(R.id.action_finishedFragment_to_subMenu_Single)));
-
     }
 }

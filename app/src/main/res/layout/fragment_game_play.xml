@@ -49,10 +49,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/scorecard_view"
         app:layout_constraintEnd_toEndOf="@+id/scorecard_view"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="@id/scorecard_view"
         app:layout_constraintTop_toTopOf="@+id/scorecard_view"
-        app:layout_constraintVertical_bias="0.22"
+        app:layout_constraintVertical_bias="0.186"
         tools:ignore="TextContrastCheck" />
 
     <TextView

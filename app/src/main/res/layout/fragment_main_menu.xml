@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/version_1"
         android:textAlignment="center"
-        android:textColor="#004D40"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/creators_text" />
@@ -99,31 +99,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/memory_card_game_logo" />
 
-    <Button
-        android:id="@+id/play_game_button"
-        android:layout_width="190dp"
-        android:layout_height="70dp"
-        android:hapticFeedbackEnabled="true"
-        android:shadowColor="#000000"
-        android:text="@string/play_game"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.677" />
-
     <TextView
         android:id="@+id/creators_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/creators"
         android:textAlignment="center"
-        android:textColor="#004D40"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.9" />
+
+    <ImageView
+        android:id="@+id/play_game_button"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="132dp"
+        android:contentDescription="@string/sets_screen_back_to_submenu"
+        android:src="@drawable/purple_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Play_button_text"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="@string/play_game"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/play_game_button"
+        app:layout_constraintEnd_toEndOf="@+id/play_game_button"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/play_game_button"
+        app:layout_constraintTop_toTopOf="@+id/play_game_button"
+        app:layout_constraintVertical_bias="0.467" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

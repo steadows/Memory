@@ -3,14 +3,12 @@
     <string name="Start">Start</string>
     <string name="version_1">v1.0</string>
     <string name="main_screen_background">Main Screen Background</string>
-    <string name="creators">Isabel Albaitis, Matt Ferretti, Steve Meadows</string>
+    <string name="creators">Matt Ferretti, Steve Meadows, Isabel Albaitis</string>
     <string name="game_logo">Game_Logo</string>
     <string name="edition">Edition</string>
     <string name="game_edition">game_edition</string>
     <string name="play_game">Play Game</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tradition_mode">Tradition Mode</string>
     <string name="time_trail_mode">Time Trail Mode</string>
@@ -19,13 +17,13 @@
     <string name="instructions_put_here">Instructions put here</string>
     <string name="traditional_mode">Traditional Mode</string>
     <string name="time_trial_mode">Time Trial Mode</string>
-    <string name="traditional_mode_will_have_the_user_start_with_a_grid_of_cards_laying_face_down_the_clock_will_then_start_counting_up_the_user_then_will_match_each_card_with_its_pair_until_there_are_no_more_pairs_left_and_the_board_is_empty_the_mode_will_end_displaying_how_fast_the_user_was_able_to_match_all_pairs">Traditional mode will have the user start with a grid of cards laying face down. The clock will then start counting up. The user then will match each card with its pair until there are no more pairs left and the board is empty. The mode will end displaying how fast the user was able to match all pairs.</string>
+    <string name="traditional_mode_will_have_the_user_start_with_a_grid_of_cards_laying_face_down_the_clock_will_then_start_counting_up_the_user_then_will_match_each_card_with_its_pair_until_there_are_no_more_pairs_left_and_the_board_is_empty_the_mode_will_end_displaying_how_fast_the_user_was_able_to_match_all_pairs">In Traditional mode, the clock will then start at 0:00:00 and start counting up. The goal of this mode is to match each card with its identical twin until there are no more pairs left and the board is empty. Your score for this mode will be the time it takes you to find all matches on the board.</string>
     <string name="time_trial_mode_will_start_the_user_with_a_grid_of_face_down_cards_laying_face_down_on_the_board_a_short_countdown_will_begin_from_3_to_prepare_the_user_for_the_round_once_the_round_starts_the_main_timer_will_start_to_count_down_from_a_specified_time_the_user_must_race_against_the_clock_to_find_all_matches_in_time_or_else_the_round_ends_there">Time Trial mode will start the user with a grid of face down cards laying face down on the board. A short countdown will begin from 3 to prepare the user for the round. Once the round starts the main timer will start to count down from a specified time. The user must race against the clock to find all matches in time or else the round ends there.</string>
     <string name="modes">Modes</string>
     <string name="game_modes">Game Modes</string>
     <string name="picture_of_a_wooden_sign">picture of a wooden sign</string>
     <string name="yellow_background_behind_main_menu_title">yellow background behind main menu title</string>
-    <string name="the_game_will_start_with_an_even_number_of_cards_organized_into_a_grid_of_rows_and_columns_each_card_will_appear_face_down_hiding_the_image_on_the_other_side_to_reveal_the_image_just_tap_on_the_card_the_card_will_then_show_its_hidden_image_you_can_see_at_most_2_cards_hidden_images_if_the_two_cards_hidden_images_match_then_they_will_disappear_and_you_will_get_a_point_for_a_completed_match_if_they_do_not_match_then_they_will_flip_back_over_hiding_their_images_once_again_the_goal_is_to_find_all_matches_as_fast_as_possible_by_memorizing_the_position_of_each_cards_hidden_image_on_the_board">The game will start with an even number of cards organized into a grid of rows and columns. Each card will appear face down hiding the image on the other side. To reveal the image just tap on the card. The card will then show its hidden image. You can see at most 2 cards hidden images. If the two cards hidden images match then they will disappear and you will get a point for a completed match. If they do not match then they will flip back over hiding their images once again. The goal is to find all matches as fast as possible by memorizing the position of each cards hidden image on the board.</string>
+    <string name="the_game_will_start_with_an_even_number_of_cards_organized_into_a_grid_of_rows_and_columns_each_card_will_appear_face_down_hiding_the_image_on_the_other_side_to_reveal_the_image_just_tap_on_the_card_the_card_will_then_show_its_hidden_image_you_can_see_at_most_2_cards_hidden_images_if_the_two_cards_hidden_images_match_then_they_will_disappear_and_you_will_get_a_point_for_a_completed_match_if_they_do_not_match_then_they_will_flip_back_over_hiding_their_images_once_again_the_goal_is_to_find_all_matches_as_fast_as_possible_by_memorizing_the_position_of_each_cards_hidden_image_on_the_board">The game will start with an even number of cards organized into a grid of rows and columns. Each card will appear face down hiding the image on the other side. To reveal the image just tap on the card. You only tap 2 cards at a time. If the two images on the cards match then they will disappear and you will get a point for a completed match. If they do not match then they will flip back over hiding their images once again. The goal is to memorize the position and image of each card and then match it to its identical twin.</string>
     <string name="matches">Matches:</string>
     <string name="time_elapsed">Time Elapsed:</string>
     <string name="_0">0</string>
@@ -37,6 +35,15 @@
     <string name="completed_time">Completed Time</string>
     <string name="back_to_menu">Back to Menu</string>
     <string name="choose_level">CHOOSE MODE </string>
-    <string name="sets_scrren_back_to_submenu">sets scrren back to submenu</string>
-    <string name="cutain_background_image">cutain background image</string>
+    <string name="sets_screen_back_to_submenu">sets screen back to submenu</string>
+    <string name="curtain_background_image">curtain background image</string>
+    <string name="back">Back</string>
+    <string name="back_to_main_menu">Back to Main Menu</string>
+    <string name="chose_difficulty">Chose Difficulty</string>
+    <string name="choose_difficulty">Choose Difficulty</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="there_are_3_different_levels_of_difficulty">There are 3 different levels of difficulty.</string>
+    <string name="on_medium_difficulty_there_will_be_a_total_of_12_cards_on_the_board">- On Medium difficulty there will be a total of 12 cards on the board</string>
+    <string name="on_hard_difficulty_there_will_be_a_total_of_20_cards_on_the_board">- On Hard difficulty there will be a total of 20 cards on the board</string>
+    <string name="on_easy_difficulty_there_will_be_a_total_of_6_cards_on_the_board">- On Easy difficulty there will be a total of 6 cards on the board</string>
 </resources>

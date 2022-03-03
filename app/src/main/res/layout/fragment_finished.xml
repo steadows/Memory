@@ -48,7 +48,7 @@
         android:layout_marginStart="83dp"
         android:layout_marginTop="59dp"
         android:layout_marginEnd="83dp"
-        android:contentDescription="@string/sets_scrren_back_to_submenu"
+        android:contentDescription="@string/sets_screen_back_to_submenu"
         android:src="@drawable/purple_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

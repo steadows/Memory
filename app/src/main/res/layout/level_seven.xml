@@ -2,46 +2,39 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout3"
+    android:id="@+id/frameLayout8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ABCDEF"
-    tools:context=".GameHardFragment">
+    android:background="#abcdef"
+    tools:context=".LevelSeven">
 
     <View
-        android:id="@+id/game_board_hard"
+        android:id="@+id/game_board7"
         android:layout_width="395dp"
         android:layout_height="590dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:background="#74264E91"
-        app:layout_constraintBottom_toTopOf="@id/scorecard_view_hard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/scorecard_view_hard"
-        android:layout_width="0dp"
+        android:id="@+id/scorecard_view7"
+        android:layout_width="395dp"
         android:layout_height="115dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:background="#74264E91"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_board7" />
 
     <TextView
-        android:id="@+id/matches_text2"
+        android:id="@+id/matches_text7"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/matches"
         android:textAlignment="textEnd"
@@ -49,16 +42,16 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="#E6BC3F"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/scorecard_view_hard"
-        app:layout_constraintTop_toTopOf="@+id/scorecard_view_hard"
+        app:layout_constraintStart_toStartOf="@+id/scorecard_view7"
+        app:layout_constraintTop_toBottomOf="@+id/game_board7"
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/time_elapsed_text2"
+        android:id="@+id/time_elapsed_text7"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="65dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/time_elapsed"
         android:textAlignment="textEnd"
@@ -66,29 +59,29 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="#E6BC3F"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/scorecard_view_hard"
-        app:layout_constraintTop_toTopOf="@+id/scorecard_view_hard"
+        app:layout_constraintStart_toStartOf="@+id/scorecard_view7"
+        app:layout_constraintTop_toTopOf="@+id/scorecard_view7"
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/timer_text2"
+        android:id="@+id/timer_text7"
         android:layout_width="120dp"
         android:layout_height="45dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/_0_00_00"
         android:textAllCaps="false"
         android:textColor="#FF0000"
         android:textSize="34sp"
         android:typeface="monospace"
-        app:layout_constraintStart_toEndOf="@+id/time_elapsed_text2"
-        app:layout_constraintTop_toTopOf="@+id/scorecard_view_hard"
+        app:layout_constraintStart_toEndOf="@+id/time_elapsed_text7"
+        app:layout_constraintTop_toTopOf="@+id/scorecard_view7"
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/score_number_text2"
-        android:layout_width="wrap_content"
+        android:id="@+id/score_number_text7"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
@@ -97,12 +90,12 @@
         android:textColor="#FF0000"
         android:textSize="34sp"
         android:typeface="monospace"
-        app:layout_constraintStart_toEndOf="@+id/matches_text2"
-        app:layout_constraintTop_toTopOf="@+id/scorecard_view_hard"
+        app:layout_constraintStart_toEndOf="@+id/matches_text7"
+        app:layout_constraintTop_toBottomOf="@+id/game_board7"
         tools:ignore="TextContrastCheck" />
 
     <com.gusakov.library.PulseCountDown
-        android:id="@+id/pulseCountDownH"
+        android:id="@+id/pulseCountDown7"
         android:layout_width="245dp"
         android:layout_height="454dp"
         android:drawableTint="#000000"
@@ -110,17 +103,15 @@
         android:textColor="#9F000000"
         android:textSize="400sp"
         android:translationZ="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         app:pc_startValue="5"
         tools:ignore="TextContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH1"
+        android:id="@+id/card7_1"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginStart="15dp"
@@ -129,26 +120,26 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH2"
+        android:id="@+id/card7_2"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:baselineAlignBottom="false"
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH3"
+        android:id="@+id/card7_3"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginTop="5dp"
@@ -157,25 +148,12 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH4"
-        android:layout_width="75dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="120dp"
-        android:clickable="false"
-        android:contentDescription="@string/playing_card"
-        android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/cardH5"
+        android:id="@+id/card7_4"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginTop="5dp"
@@ -184,54 +162,26 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH6"
+        android:id="@+id/card7_5"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="120dp"
         android:baselineAlignBottom="false"
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH7"
-        android:layout_width="75dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="350dp"
-        android:baselineAlignBottom="false"
-        android:clickable="false"
-        android:contentDescription="@string/playing_card"
-        android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/cardH8"
-        android:layout_width="75dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="465dp"
-        android:baselineAlignBottom="false"
-        android:clickable="false"
-        android:contentDescription="@string/playing_card"
-        android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/cardH9"
+        android:id="@+id/card7_6"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginStart="110dp"
@@ -240,26 +190,25 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH10"
+        android:id="@+id/card7_7"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="110dp"
-        android:baselineAlignBottom="false"
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH11"
+        android:id="@+id/card7_8"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginTop="120dp"
@@ -268,12 +217,26 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH12"
+        android:id="@+id/card7_9"
+        android:layout_width="75dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="235dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card7_10"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginStart="110dp"
@@ -282,26 +245,26 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH13"
+        android:id="@+id/card7_11"
         android:layout_width="75dp"
         android:layout_height="115dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="235dp"
         android:layout_marginEnd="110dp"
         android:baselineAlignBottom="false"
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH14"
+        android:id="@+id/card7_12"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginTop="235dp"
@@ -310,26 +273,26 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH15"
+        android:id="@+id/card7_13"
         android:layout_width="75dp"
         android:layout_height="115dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="350dp"
-        android:layout_marginEnd="15dp"
         android:baselineAlignBottom="false"
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH16"
+        android:id="@+id/card7_14"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginStart="110dp"
@@ -338,26 +301,54 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH17"
+        android:id="@+id/card7_15"
         android:layout_width="75dp"
         android:layout_height="115dp"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="110dp"
         android:baselineAlignBottom="false"
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH18"
+        android:id="@+id/card7_16"
+        android:layout_width="75dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="15dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card7_17"
+        android:layout_width="75dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="465dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card7_18"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginStart="110dp"
@@ -366,12 +357,12 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintStart_toStartOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintStart_toStartOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH19"
+        android:id="@+id/card7_19"
         android:layout_width="75dp"
         android:layout_height="115dp"
         android:layout_marginTop="465dp"
@@ -380,21 +371,21 @@
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/cardH20"
+        android:id="@+id/card7_20"
         android:layout_width="75dp"
         android:layout_height="115dp"
-        android:layout_marginTop="464dp"
+        android:layout_marginTop="465dp"
         android:layout_marginEnd="15dp"
         android:baselineAlignBottom="false"
         android:clickable="false"
         android:contentDescription="@string/playing_card"
         android:src="@drawable/card_back"
-        app:layout_constraintEnd_toEndOf="@+id/game_board_hard"
-        app:layout_constraintTop_toTopOf="@+id/game_board_hard"
+        app:layout_constraintEnd_toEndOf="@+id/game_board7"
+        app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

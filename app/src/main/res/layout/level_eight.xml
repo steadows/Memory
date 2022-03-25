@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout9"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#abcdef"
+    tools:context=".LevelEight">
+
+    <View
+        android:id="@+id/scorecard_view8"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:background="#74264E91"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/game_board8"
+        android:layout_width="400dp"
+        android:layout_height="610dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:background="#74264E91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timer_text8"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="47dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/_0_00_00"
+        android:textAllCaps="false"
+        android:textColor="#FF0000"
+        android:textSize="34sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toEndOf="@+id/time_elapsed_text8"
+        app:layout_constraintTop_toTopOf="@+id/scorecard_view8"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/matches_text8"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/matches"
+        android:textAlignment="textEnd"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="#E6BC3F"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/scorecard_view8"
+        app:layout_constraintTop_toTopOf="@+id/scorecard_view8"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/time_elapsed_text8"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/time_elapsed"
+        android:textAlignment="textEnd"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="#E6BC3F"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/scorecard_view8"
+        app:layout_constraintTop_toTopOf="@+id/scorecard_view8"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/score_number_text8"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/_0"
+        android:textColor="#FF0000"
+        android:textSize="34sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toEndOf="@+id/matches_text8"
+        app:layout_constraintTop_toTopOf="@+id/scorecard_view8"
+        tools:ignore="TextContrastCheck" />
+
+    <com.gusakov.library.PulseCountDown
+        android:id="@+id/pulseCountDown8"
+        android:layout_width="245dp"
+        android:layout_height="454dp"
+        android:drawableTint="#000000"
+        android:text="@string/_5"
+        android:textColor="#9F000000"
+        android:textSize="400sp"
+        android:translationZ="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pc_startValue="5"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_1"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_2"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="10dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_3"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="170dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_4"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="90dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_5"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_6"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="120dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_7"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="120dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_8"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="170dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_9"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="90dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_10"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="15dp"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_11"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="240dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_12"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="240dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_13"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="170dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_14"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="90dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_15"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="15dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_16"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="360dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_17"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="360dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_18"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="170dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_19"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="90dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_20"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="15dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_21"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="480dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_22"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="480dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_23"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="125dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/card8_24"
+        android:layout_width="70dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="40dp"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contentDescription="@string/playing_card"
+        android:src="@drawable/card_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

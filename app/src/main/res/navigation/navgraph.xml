@@ -22,12 +22,12 @@
     </fragment>
 
     <fragment
-        android:id="@+id/gamePlayFragment"
-        android:name="com.memory.GamePlayFragment"
+        android:id="@+id/LevelOne"
+        android:name="com.memory.LevelOne"
         android:label="fragment_game_play"
-        tools:layout="@layout/fragment_game_play" >
+        tools:layout="@layout/level_one" >
         <action
-            android:id="@+id/action_gamePlayFragment_to_finishedFragment"
+            android:id="@+id/action_LevelOne_to_finishedFragment"
             app:destination="@id/finishedFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
@@ -38,8 +38,8 @@
         android:label="fragment_sub_menu__single"
         tools:layout="@layout/fragment_sub_menu" >
         <action
-            android:id="@+id/action_subMenu_Single_to_gamePlayFragment"
-            app:destination="@id/gamePlayFragment"
+            android:id="@+id/action_subMenu_Single_to_LevelOne"
+            app:destination="@id/LevelOne"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -55,15 +55,30 @@
             android:id="@+id/action_subMenu_Single_to_mainMenuFragment"
             app:destination="@id/mainMenuFragment" />
         <action
-            android:id="@+id/action_subMenu_Single_to_gameHardFragment"
-            app:destination="@id/gameHardFragment"
+            android:id="@+id/action_subMenu_Single_to_LevelFour"
+            app:destination="@id/LevelFour"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
         <action
-            android:id="@+id/action_subMenu_Single_to_gameMediumFragment"
-            app:destination="@id/gameMediumFragment"
+            android:id="@+id/action_subMenu_Single_to_LevelTwo"
+            app:destination="@id/LevelTwo"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_levelThree"
+            app:destination="@id/levelThree" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_levelFive"
+            app:destination="@id/levelFive" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_levelSix"
+            app:destination="@id/levelSix" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_levelSeven"
+            app:destination="@id/levelSeven" />
+        <action
+            android:id="@+id/action_subMenu_Single_to_levelEight"
+            app:destination="@id/levelEight" />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
@@ -89,26 +104,67 @@
             app:popUpTo="@id/subMenu_Single" />
     </fragment>
     <fragment
-        android:id="@+id/gameHardFragment"
-        android:name="com.memory.GameHardFragment"
+        android:id="@+id/LevelFour"
+        android:name="com.memory.LevelFour"
         android:label="fragment_game_hard"
-        tools:layout="@layout/fragment_game_hard" >
+        tools:layout="@layout/level_four" >
         <action
-            android:id="@+id/action_gameHardFragment_to_finishedFragment"
+            android:id="@+id/action_LevelFour_to_finishedFragment"
             app:destination="@id/finishedFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/gameMediumFragment"
-        android:name="com.memory.GameMediumFragment"
+        android:id="@+id/LevelTwo"
+        android:name="com.memory.LevelTwo"
         android:label="fragment_game_medium"
-        tools:layout="@layout/fragment_game_medium" >
+        tools:layout="@layout/level_two" >
         <action
-            android:id="@+id/action_gameMediumFragment_to_finishedFragment"
+            android:id="@+id/action_LevelTwo_to_finishedFragment"
             app:destination="@id/finishedFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
+    <fragment
+        android:id="@+id/levelThree"
+        android:name="com.memory.LevelThree"
+        android:label="level_three"
+        tools:layout="@layout/level_three" >
+        <action
+            android:id="@+id/action_levelThree_to_finishedFragment"
+            app:destination="@id/finishedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelFive"
+        android:name="com.memory.LevelFive"
+        android:label="level_five"
+        tools:layout="@layout/level_five" >
+        <action
+            android:id="@+id/action_levelFive_to_finishedFragment"
+            app:destination="@id/finishedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelSix"
+        android:name="com.memory.LevelSix"
+        android:label="level_six"
+        tools:layout="@layout/level_six" >
+        <action
+            android:id="@+id/action_levelSix_to_finishedFragment"
+            app:destination="@id/finishedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelSeven"
+        android:name="com.memory.LevelSeven"
+        android:label="level_seven"
+        tools:layout="@layout/level_seven" >
+        <action
+            android:id="@+id/action_levelSeven_to_finishedFragment"
+            app:destination="@id/finishedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelEight"
+        android:name="com.memory.LevelEight"
+        android:label="level_eight"
+        tools:layout="@layout/level_eight" />
 
 </navigation>

@@ -57,7 +57,8 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         // Spinner element (Drop-down menu)
         Spinner spin = view.findViewById(R.id.spinner);
 
-        String[] levels = { "EASY", "Medium", "HARD" };
+        String[] levels = { "Level One", "Level Two", "Level Three", "Level Four", "Level Five",
+                            "Level Six", "Level Seven", "Level Eight"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, levels);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -87,15 +88,35 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
 
         if (position == 0) {
             traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_gamePlayFragment));
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_LevelOne));
          }
         if (position == 1) {
             traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_gameMediumFragment));
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_LevelTwo));
         }
         if (position == 2) {
             traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_gameHardFragment));
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelThree));
+        }
+        if (position == 3) {
+            traditionalButton.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_LevelFour));
+        }
+        if (position == 4) {
+            traditionalButton.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelFive));
+        }
+        if (position == 5) {
+            traditionalButton.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelSix));
+        }
+        if (position == 6) {
+            traditionalButton.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelSeven));
+        }
+        if (position == 7) {
+            traditionalButton.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelEight));
         }
     }
 

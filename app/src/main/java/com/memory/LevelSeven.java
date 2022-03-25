@@ -25,7 +25,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
-public class GameMediumFragment extends Fragment {
+
+public class LevelSeven extends Fragment {
 
     NavController navController;
     int numMatches = 0;
@@ -36,13 +37,14 @@ public class GameMediumFragment extends Fragment {
     Random random = new Random();
 
     // Library of all Images and Cards
-    private final int[] images = { R.drawable.louie, R.drawable.michigan_flag, R.drawable.lions,
+    private final int[] images = {R.drawable.louie, R.drawable.michigan_flag, R.drawable.lions,
             R.drawable.grand_rapids, R.drawable.detroit_statue1, R.drawable.founder,
-            R.drawable.tigers, R.drawable.umich, R.drawable.msu, R.drawable.pistons };
+            R.drawable.tigers, R.drawable.umich, R.drawable.msu, R.drawable.pistons};
 
-    private final int[] cardDeck = { R.id.cardM1, R.id.cardM2, R.id.cardM3, R.id.cardM4,
-            R.id.cardM5, R.id.cardM6, R.id.cardM7, R.id.cardM8, R.id.cardM9, R.id.cardM10,
-            R.id.cardM11, R.id.cardM12 };
+    private final int[] cardDeck = {R.id.card7_1, R.id.card7_2, R.id.card7_3, R.id.card7_4,
+            R.id.card7_5, R.id.card7_6, R.id.card7_7, R.id.card7_8, R.id.card7_9, R.id.card7_10,
+            R.id.card7_11, R.id.card7_12, R.id.card7_13, R.id.card7_14, R.id.card7_15,
+            R.id.card7_16, R.id.card7_17, R.id.card7_18, R.id.card7_19, R.id.card7_20};
 
     // Creating Timer
     Handler timeHandler = new Handler();
@@ -56,7 +58,7 @@ public class GameMediumFragment extends Fragment {
     TextView timerText;
     TextView matches;
 
-    public GameMediumFragment() {
+    public LevelSeven() {
         // Required empty public constructor
     }
 
@@ -64,7 +66,7 @@ public class GameMediumFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_medium, container, false);
+        return inflater.inflate(R.layout.level_seven, container, false);
     }
 
     @Override
@@ -72,12 +74,12 @@ public class GameMediumFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        setCardsNotClick();
+        setCardsClick(false);
 
         // Assign to variables
-        timerText = view.findViewById(R.id.timer_textM);
-        matches = view.findViewById(R.id.score_number_textM);
-        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDownM);
+        timerText = view.findViewById(R.id.timer_text7);
+        matches = view.findViewById(R.id.score_number_text7);
+        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDown7);
 
         // Initial Countdown when starting the game
         pulseCountDown.start(this::flipAllCards);
@@ -87,67 +89,44 @@ public class GameMediumFragment extends Fragment {
         shuffle(images, images.length);
         shuffle(images, images.length);
 
-        // Assign Images to variables
-        ImageView card1 = view.findViewById(R.id.cardM1);
-        ImageView card2 = view.findViewById(R.id.cardM2);
-        ImageView card3 = view.findViewById(R.id.cardM3);
-        ImageView card4 = view.findViewById(R.id.cardM4);
-        ImageView card5 = view.findViewById(R.id.cardM5);
-        ImageView card6 = view.findViewById(R.id.cardM6);
-        ImageView card7 = view.findViewById(R.id.cardM7);
-        ImageView card8 = view.findViewById(R.id.cardM8);
-        ImageView card9 = view.findViewById(R.id.cardM9);
-        ImageView card10 = view.findViewById(R.id.cardM10);
-        ImageView card11 = view.findViewById(R.id.cardM11);
-        ImageView card12 = view.findViewById(R.id.cardM12);
-
-
         ArrayList<ImageView> cards = new ArrayList<>();
-        ImageView[] cardArrParents = new ImageView[cardDeck.length/2];
-        ImageView[] cardArrChild = new ImageView[cardDeck.length/2];
+        ImageView[] cardArrParents = new ImageView[cardDeck.length / 2];
+        ImageView[] cardArrChild = new ImageView[cardDeck.length / 2];
 
-        cards.add(card1);
-        cards.add(card2);
-        cards.add(card3);
-        cards.add(card4);
-        cards.add(card5);
-        cards.add(card6);
-        cards.add(card7);
-        cards.add(card8);
-        cards.add(card9);
-        cards.add(card10);
-        cards.add(card11);
-        cards.add(card12);
+        for (int j : cardDeck) {
+            ImageView card = view.findViewById(j);
+            cards.add(card);
+        }
 
-        for (int i = 0; i < cardDeck.length/2; i++) {
+        for (int i = 0; i < cardDeck.length / 2; i++) {
             int r = random.nextInt(cards.size());
             cardArrParents[i] = cards.get(r);
             cards.remove(r);
         }
 
-        for (int i = 0; i < cardDeck.length/2; i++) {
+        for (int i = 0; i < cardDeck.length / 2; i++) {
             cardArrChild[i] = cards.get(i);
         }
 
         ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < cardDeck.length/2; i++) {
+        for (int i = 0; i < cardDeck.length / 2; i++) {
             list.add(i);
         }
 
         Map<ImageView, Integer> cardParents = new HashMap<>();
         Map<ImageView, Integer> cardChildren = new HashMap<>();
 
-        for (int i = 0; i < cardDeck.length/2; i++) {
+        for (int i = 0; i < cardDeck.length / 2; i++) {
             int r = random.nextInt(list.size());
             cardParents.put(cardArrParents[i], list.get(r));
             list.remove(r);
         }
 
-        for (int i = 0; i < cardDeck.length/2; i++) {
+        for (int i = 0; i < cardDeck.length / 2; i++) {
             list.add(i);
         }
 
-        for (int i = 0; i < cardDeck.length/2; i++) {
+        for (int i = 0; i < cardDeck.length / 2; i++) {
             int r = random.nextInt(list.size());
             cardChildren.put(cardArrChild[i], list.get(r));
             list.remove(r);
@@ -179,16 +158,17 @@ public class GameMediumFragment extends Fragment {
         flipped++;
 
         if (flipped >= 2) {
-            setCardsNotClick();
+            setCardsClick(false);
             if (match1 == match2) {
                 matchFound(currCard, prevCard);
-                setCardsClick();
+                setCardsClick(true);
             }
             if (match1 != match2) {
                 new CountDownTimer(2000, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {// Nothing do do during countdown
                     }
+
                     @Override
                     public void onFinish() {
                         flipAllCards();
@@ -211,7 +191,17 @@ public class GameMediumFragment extends Fragment {
         numMatches = numMatches + 1;
         matches.setText(String.valueOf(numMatches));
 
-        if (numMatches == cardDeck.length/2){
+        if (numMatches == cardDeck.length / 2) {
+            new CountDownTimer(3000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {// Nothing do do during countdown
+                }
+
+                @Override
+                public void onFinish() { reset(); }
+            }.start();
+        }
+        if (numMatches == cardDeck.length) {
             // Time is sent in elapsed milliseconds
             // Send timer data to FinishedFragment
             Bundle score = new Bundle();
@@ -240,7 +230,7 @@ public class GameMediumFragment extends Fragment {
             cardTemp = requireActivity().findViewById(j);
             cardTemp.setImageResource(R.drawable.card_back);
         }
-        setCardsClick();
+        setCardsClick(true);
         flipped = 0;
     }
 
@@ -259,26 +249,39 @@ public class GameMediumFragment extends Fragment {
         }
     }
 
-    /****************************************************
-     * Sets all ImageViews being used to clickable.
-     ***************************************************/
-    private void setCardsClick() {
+    /******************************************************
+     * Sets all ImageViews being used to clickable
+     * or un-clickable.
+     ******************************************************/
+    private void setCardsClick(Boolean bool) {
         ImageView cardTemp;
         for (int j : cardDeck) {
             cardTemp = requireActivity().findViewById(j);
-            cardTemp.setEnabled(true);
+            if (Boolean.TRUE.equals(bool)) {
+                cardTemp.setEnabled(true);
+            }
+            if (Boolean.FALSE.equals(bool)) {
+                cardTemp.setEnabled(false);
+            }
         }
     }
 
-    /****************************************************
-     * Sets all ImageViews being used to un-clickable.
-     ***************************************************/
-    private void setCardsNotClick() {
+    /******************************************************
+     * Resets board by showing all cards and shuffling
+     ******************************************************/
+    private void reset() {
+        Animation fade = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
         ImageView cardTemp;
+        flipped = 0;
+        match2 = 999;
         for (int j : cardDeck) {
             cardTemp = requireActivity().findViewById(j);
-            cardTemp.setEnabled(false);
+            cardTemp.setImageResource(R.drawable.card_back);
+            cardTemp.startAnimation(fade);
+            cardTemp.setVisibility(View.VISIBLE);
         }
+        shuffle(images, images.length);
+        shuffle(images, images.length);
     }
 
     /****************************************************
@@ -292,13 +295,13 @@ public class GameMediumFragment extends Fragment {
                 firstStart = false;
             }
             long millis = System.currentTimeMillis() - (startTime);
-            timerScore = millis;
 
             int seconds = (int) (millis / 1000);
             int minutes = seconds / 60;
             millis = millis % 100;
-
             seconds = seconds % 60;
+
+            timerScore = millis;
             timeHandler.postDelayed(this, 0);
             timerText.setText(String.format(Locale.getDefault(),
                     "%d:%02d:%02d", minutes, seconds, millis));

@@ -21,7 +21,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
-public class GameHardFragment extends Fragment {
+public class LevelFour extends Fragment {
 
     NavController navController;
     int numMatches = 0;
@@ -36,10 +36,10 @@ public class GameHardFragment extends Fragment {
             R.drawable.grand_rapids, R.drawable.detroit_statue1, R.drawable.founder,
             R.drawable.tigers, R.drawable.umich, R.drawable.msu, R.drawable.pistons };
 
-    private final int[] cardDeck = { R.id.cardH1, R.id.cardH2, R.id.cardH3, R.id.cardH4,
-            R.id.cardH5, R.id.cardH6, R.id.cardH7, R.id.cardH8, R.id.cardH9, R.id.cardH10,
-            R.id.cardH11, R.id.cardH12, R.id.cardH13, R.id.cardH14, R.id.cardH15, R.id.cardH16,
-            R.id.cardH17, R.id.cardH18, R.id.cardH19, R.id.cardH20};
+    private final int[] cardDeck = { R.id.card4_1, R.id.card4_2, R.id.card4_3, R.id.card4_4,
+            R.id.card4_5, R.id.card4_6, R.id.card4_7, R.id.card4_8, R.id.card4_9, R.id.card4_10,
+            R.id.card4_11, R.id.card4_12, R.id.card4_13, R.id.card4_14, R.id.card4_15,
+            R.id.card4_16, R.id.card4_17, R.id.card4_18, R.id.card4_19, R.id.card4_20};
 
     // Creating Timer
     Handler timeHandler = new Handler();
@@ -53,7 +53,7 @@ public class GameHardFragment extends Fragment {
     TextView timerText;
     TextView matches;
 
-    public GameHardFragment() {
+    public LevelFour() {
         // Required empty public constructor
     }
 
@@ -61,7 +61,7 @@ public class GameHardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_hard, container, false);
+        return inflater.inflate(R.layout.level_four, container, false);
     }
 
     @Override
@@ -72,9 +72,9 @@ public class GameHardFragment extends Fragment {
         setCardsNotClick();
 
         // Assign to variables
-        timerText = view.findViewById(R.id.timer_text2);
-        matches = view.findViewById(R.id.score_number_text2);
-        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDownH);
+        timerText = view.findViewById(R.id.timer_text4);
+        matches = view.findViewById(R.id.score_number_text4);
+        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDown4);
 
         // Initial Countdown when starting the game
         pulseCountDown.start(this::flipAllCards);
@@ -84,52 +84,14 @@ public class GameHardFragment extends Fragment {
         shuffle(images, images.length);
         shuffle(images, images.length);
 
-        // Assign Images to variables
-        ImageView card1 = view.findViewById(R.id.cardH1);
-        ImageView card2 = view.findViewById(R.id.cardH2);
-        ImageView card3 = view.findViewById(R.id.cardH3);
-        ImageView card4 = view.findViewById(R.id.cardH4);
-        ImageView card5 = view.findViewById(R.id.cardH5);
-        ImageView card6 = view.findViewById(R.id.cardH6);
-        ImageView card7 = view.findViewById(R.id.cardH7);
-        ImageView card8 = view.findViewById(R.id.cardH8);
-        ImageView card9 = view.findViewById(R.id.cardH9);
-        ImageView card10 = view.findViewById(R.id.cardH10);
-        ImageView card11 = view.findViewById(R.id.cardH11);
-        ImageView card12 = view.findViewById(R.id.cardH12);
-        ImageView card13 = view.findViewById(R.id.cardH13);
-        ImageView card14 = view.findViewById(R.id.cardH14);
-        ImageView card15 = view.findViewById(R.id.cardH15);
-        ImageView card16 = view.findViewById(R.id.cardH16);
-        ImageView card17 = view.findViewById(R.id.cardH17);
-        ImageView card18 = view.findViewById(R.id.cardH18);
-        ImageView card19 = view.findViewById(R.id.cardH19);
-        ImageView card20 = view.findViewById(R.id.cardH20);
-
         ArrayList<ImageView> cards = new ArrayList<>();
         ImageView[] cardArrParents = new ImageView[cardDeck.length/2];
         ImageView[] cardArrChild = new ImageView[cardDeck.length/2];
 
-        cards.add(card1);
-        cards.add(card2);
-        cards.add(card3);
-        cards.add(card4);
-        cards.add(card5);
-        cards.add(card6);
-        cards.add(card7);
-        cards.add(card8);
-        cards.add(card9);
-        cards.add(card10);
-        cards.add(card11);
-        cards.add(card12);
-        cards.add(card13);
-        cards.add(card14);
-        cards.add(card15);
-        cards.add(card16);
-        cards.add(card17);
-        cards.add(card18);
-        cards.add(card19);
-        cards.add(card20);
+        for (int j : cardDeck) {
+            ImageView card = view.findViewById(j);
+            cards.add(card);
+        }
 
         for (int i = 0; i < cardDeck.length/2; i++) {
             int r = random.nextInt(cards.size());

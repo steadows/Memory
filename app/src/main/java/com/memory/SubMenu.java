@@ -60,6 +60,28 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         String[] levels = { "Level One", "Level Two", "Level Three", "Level Four", "Level Five",
                             "Level Six", "Level Seven", "Level Eight"};
 
+        if (!LevelOne.completed){
+            levels[1] = "Level Two [Locked]";
+        }
+        if (!LevelTwo.completed){
+            levels[2] = "Level Three [Locked]";
+        }
+        if (!LevelThree.completed){
+            levels[3] = "Level Four [Locked]";
+        }
+        if (!LevelFour.completed){
+            levels[4] = "Level Five [Locked]";
+        }
+        if (!LevelFive.completed){
+            levels[5] = "Level Six [Locked]";
+        }
+        if (!LevelSix.completed){
+            levels[6] = "Level Seven [Locked]";
+        }
+        if (!LevelSeven.completed){
+            levels[7] = "Level Eight [Locked]";
+        }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, levels);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adapter);
@@ -91,32 +113,46 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
                     findNavController(v).navigate(R.id.action_subMenu_Single_to_LevelOne));
          }
         if (position == 1) {
-            traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_LevelTwo));
+            if (LevelOne.completed) {
+                traditionalButton.setOnClickListener(v ->
+                        findNavController(v).navigate(R.id.action_subMenu_Single_to_LevelTwo));
+            }
         }
         if (position == 2) {
-            traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelThree));
+            if (LevelTwo.completed) {
+                traditionalButton.setOnClickListener(v ->
+                        findNavController(v).navigate(R.id.action_subMenu_Single_to_levelThree));
+            }
         }
         if (position == 3) {
-            traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_LevelFour));
+            if (LevelThree.completed) {
+                traditionalButton.setOnClickListener(v ->
+                        findNavController(v).navigate(R.id.action_subMenu_Single_to_LevelFour));
+            }
         }
         if (position == 4) {
-            traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelFive));
+            if (LevelFour.completed) {
+                traditionalButton.setOnClickListener(v ->
+                        findNavController(v).navigate(R.id.action_subMenu_Single_to_levelFive));
+            }
         }
         if (position == 5) {
-            traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelSix));
+            if (LevelFive.completed) {
+                traditionalButton.setOnClickListener(v ->
+                        findNavController(v).navigate(R.id.action_subMenu_Single_to_levelSix));
+            }
         }
         if (position == 6) {
-            traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelSeven));
+            if (LevelSix.completed) {
+                traditionalButton.setOnClickListener(v ->
+                        findNavController(v).navigate(R.id.action_subMenu_Single_to_levelSeven));
+            }
         }
         if (position == 7) {
-            traditionalButton.setOnClickListener(v ->
-                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelEight));
+            if (LevelEight.completed) {
+                traditionalButton.setOnClickListener(v ->
+                        findNavController(v).navigate(R.id.action_subMenu_Single_to_levelEight));
+            }
         }
     }
 

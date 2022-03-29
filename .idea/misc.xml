@@ -26,6 +26,7 @@
         <entry key="app/src/main/res/drawable/check_faygo.xml" value="0.3355" />
         <entry key="app/src/main/res/layout/fragment_game_hard.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/fragment_game_play.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_sub_menu.xml" value="0.26403985507246375" />
         <entry key="app/src/main/res/layout/level_eight.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/level_five.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/level_four.xml" value="0.23324275362318841" />
@@ -38,7 +39,7 @@
     </option>
   </component>
   <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/untitled folder" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../../../untitled folder" />
     <option name="OPTION_INCLUDE_LIBS" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">

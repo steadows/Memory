@@ -28,6 +28,9 @@ import java.util.Random;
 
 public class LevelEight extends Fragment {
 
+    // Static variable to hold user's completion status for this level
+    static boolean completed = false;
+
     NavController navController;
     int numMatches = 0;
     int flipped = 0;
@@ -212,6 +215,7 @@ public class LevelEight extends Fragment {
             firstStart = true;
             numMatches = 0;
             flipped = 0;
+            completed = true;
             navController.navigate(R.id.finishedFragment);
         }
 

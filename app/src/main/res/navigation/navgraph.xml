@@ -165,6 +165,10 @@
         android:id="@+id/levelEight"
         android:name="com.memory.LevelEight"
         android:label="level_eight"
-        tools:layout="@layout/level_eight" />
+        tools:layout="@layout/level_eight" >
+        <action
+            android:id="@+id/action_levelEight_to_finishedFragment"
+            app:destination="@id/finishedFragment" />
+    </fragment>
 
 </navigation>

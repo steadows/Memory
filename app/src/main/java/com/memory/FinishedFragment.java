@@ -38,6 +38,7 @@ public class FinishedFragment extends Fragment {
                 this, (requestKey, result) -> {
                     userTimeScore = result.getLong("timerScore");
 
+
                     if (userTimeScore > 0) {
                         long millis = userTimeScore;
                         int minutes = (int) (millis / 60000);

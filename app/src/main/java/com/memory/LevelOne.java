@@ -48,6 +48,7 @@ public class LevelOne extends Fragment {
 
     // Variable to hold user's score
     long timerScore;
+    static boolean completed = false;
 
     // Variables to link the widgets on screen
     TextView timerText;
@@ -195,6 +196,8 @@ public class LevelOne extends Fragment {
             firstStart = true;
             numMatches = 0;
             flipped = 0;
+
+            completed = true;
             navController.navigate(R.id.finishedFragment);
         }
 

@@ -58,7 +58,7 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         Spinner spin = view.findViewById(R.id.spinner);
 
         String[] levels = { "Level One", "Level Two", "Level Three", "Level Four", "Level Five",
-                            "Level Six", "Level Seven", "Level Eight"};
+                            "Level Six", "Level Seven", "Level Eight", "Time Trial - Level One"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, levels);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -117,6 +117,10 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         if (position == 7) {
             traditionalButton.setOnClickListener(v ->
                     findNavController(v).navigate(R.id.action_subMenu_Single_to_levelEight));
+        }
+        if (position == 8) {
+            traditionalButton.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_subMenu_Single_to_levelOne_time_trial));
         }
     }
 

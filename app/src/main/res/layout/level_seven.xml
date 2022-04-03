@@ -388,4 +388,78 @@
         app:layout_constraintEnd_toEndOf="@+id/game_board7"
         app:layout_constraintTop_toTopOf="@+id/game_board7"
         tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/timeUpText7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/time_is_up"
+        android:textColor="#FF0000"
+        android:textSize="72sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/timeUpButtonRetry7"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="150dp"
+        android:contentDescription="@string/sets_screen_back_to_submenu"
+        android:src="@drawable/purple_button"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/game_board7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/timeUpButtonRetryText7"
+        android:layout_width="251dp"
+        android:layout_height="37dp"
+        android:text="@string/play_again"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/timeUpButtonRetry7"
+        app:layout_constraintEnd_toEndOf="@+id/timeUpButtonRetry7"
+        app:layout_constraintStart_toStartOf="@+id/timeUpButtonRetry7"
+        app:layout_constraintTop_toTopOf="@+id/timeUpButtonRetry7"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/timeUpButtonSubMenu7"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="150dp"
+        android:contentDescription="@string/sets_screen_back_to_submenu"
+        android:src="@drawable/purple_button"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/timeUpButtonSubMenuText7"
+        android:layout_width="251dp"
+        android:layout_height="37dp"
+        android:text="@string/back_to_main_menu"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/timeUpButtonSubMenu7"
+        app:layout_constraintEnd_toEndOf="@+id/timeUpButtonSubMenu7"
+        app:layout_constraintStart_toStartOf="@+id/timeUpButtonSubMenu7"
+        app:layout_constraintTop_toTopOf="@+id/timeUpButtonSubMenu7" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

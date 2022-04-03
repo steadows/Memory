@@ -1,6 +1,7 @@
 package com.memory;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Locale;
+
+import nl.dionsegijn.konfetti.KonfettiView;
+import nl.dionsegijn.konfetti.models.Shape;
+import nl.dionsegijn.konfetti.models.Size;
 
 public class FinishedFragment extends Fragment {
 
@@ -64,6 +69,7 @@ public class FinishedFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Initialize components
+        TextView title = view.findViewById(R.id.completed_time);
         backButton = view.findViewById(R.id.back_button);
         buttonText = view.findViewById(R.id.back_button_text);
         score = view.findViewById(R.id.score);
@@ -80,6 +86,22 @@ public class FinishedFragment extends Fragment {
         buttonText.startAnimation(bounce);
         score.startAnimation(blink);
 
+        if(Boolean.FALSE.equals(SubMenu.traditionalMode)){
+            title.setText(R.string.remaining);
+        }
+
+        final KonfettiView konfettiView = requireActivity().findViewById(R.id.konfetti);
+        konfettiView.setOnClickListener(view1 -> konfettiView.build()
+                .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+                .setDirection(0.0, 359.0)
+                .setSpeed(1f, 5f)
+                .setFadeOutEnabled(true)
+                .setTimeToLive(2000L)
+                .addShapes(Shape.Square.INSTANCE, Shape.Circle.INSTANCE)
+                .addSizes(new Size(12, 5f))
+                .setPosition(-50f, konfettiView.getWidth() + 50f, -50f, -50f)
+                .streamFor(300, 5000L));
+
         backButton.setOnClickListener((v ->
                 Navigation.findNavController(v).navigate(R.id.action_finishedFragment_to_subMenu_Single)));
 
@@ -89,6 +111,7 @@ public class FinishedFragment extends Fragment {
             public void onTick(long millisUntilFinished) {
                 buttonText.startAnimation(bounce);
                 backButton.startAnimation(bounce);
+                konfettiView.performClick();
             }
             @Override
             public void onFinish() { /* Do nothing, countdown will never reach */ }

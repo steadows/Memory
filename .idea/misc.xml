@@ -24,8 +24,11 @@
         <entry key="app/src/main/res/drawable/check.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/check_cherry_rep.xml" value="0.142" />
         <entry key="app/src/main/res/drawable/check_faygo.xml" value="0.3355" />
+        <entry key="app/src/main/res/layout/fragment_finished.xml" value="0.3375" />
         <entry key="app/src/main/res/layout/fragment_game_hard.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/fragment_game_play.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_instruction.xml" value="0.3375" />
+        <entry key="app/src/main/res/layout/fragment_sub_menu.xml" value="0.3375" />
         <entry key="app/src/main/res/layout/level_eight.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/level_five.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/level_four.xml" value="0.23324275362318841" />

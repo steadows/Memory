@@ -1,5 +1,7 @@
 package com.memory;
 
+import static androidx.navigation.Navigation.findNavController;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,16 +45,15 @@ public class LevelTwo extends Fragment {
             R.drawable.grand_rapids, R.drawable.detroit_statue1, R.drawable.founder,
             R.drawable.tigers, R.drawable.umich, R.drawable.msu, R.drawable.pistons };
 
-    private final int[] cardDeck = { R.id.cardM1, R.id.cardM2, R.id.cardM3, R.id.cardM4,
-            R.id.cardM5, R.id.cardM6, R.id.cardM7, R.id.cardM8, R.id.cardM9, R.id.cardM10,
-            R.id.cardM11, R.id.cardM12 };
-
-    //GamePlay logic = new GamePlay(cardDeck,R.id.matches_text);
+    private final int[] cardDeck = { R.id.card2_1, R.id.card2_2, R.id.card2_3, R.id.card2_4,
+            R.id.card2_5, R.id.card2_6, R.id.card2_7, R.id.card2_8, R.id.card2_9, R.id.card2_11,
+            R.id.card2_10, R.id.card2_12};
 
     // Creating Timer
     Handler timeHandler = new Handler();
     long startTime;
     Boolean firstStart = true;
+    Boolean allMatchesFound = false;
 
     // Variable to hold user's score
     long timerScore;
@@ -77,70 +78,32 @@ public class LevelTwo extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        setCardsClick(false);
+        //allMatchesFound = false;
 
         // Assign to variables
-        timerText = view.findViewById(R.id.timer_textM);
-        matches = view.findViewById(R.id.score_number_textM);
-        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDownM);
+        timerText = view.findViewById(R.id.timer_text2);
+        matches = view.findViewById(R.id.score_number_text2);
+        PulseCountDown pulseCountDown = view.findViewById(R.id.pulseCountDown2);
 
-        // Initial Countdown when starting the game
-        pulseCountDown.start(this::flipAllCards);
+        // Start 5 second countdown before the timer starts
+        setCardsClick(false);
+        pulseCountDown.start(() -> setCardsClick(true));
 
-        timeHandler.postDelayed(timeRunnable, 5500);
+        // Call either timer to start after a delay of 5 1/2 seconds
+        if(Boolean.TRUE.equals(SubMenu.traditionalMode)) {
+            timeHandler.postDelayed(timerUp, 5500);
+        }
+        if(Boolean.FALSE.equals(SubMenu.traditionalMode)) {
+            new CountDownTimer(5000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) { timerText.setText(R.string.level2); }
 
-        shuffle(images, images.length);
-        shuffle(images, images.length);
-
-        ArrayList<ImageView> cards = new ArrayList<>();
-        ImageView[] cardArrParents = new ImageView[cardDeck.length/2];
-        ImageView[] cardArrChild = new ImageView[cardDeck.length/2];
-
-        for (int j : cardDeck) {
-            ImageView card = view.findViewById(j);
-            cards.add(card);
+                @Override
+                public void onFinish() { timerDown(); } }.start();
         }
 
-        for (int i = 0; i < cardDeck.length/2; i++) {
-            int r = random.nextInt(cards.size());
-            cardArrParents[i] = cards.get(r);
-            cards.remove(r);
-        }
-
-        for (int i = 0; i < cardDeck.length/2; i++) {
-            cardArrChild[i] = cards.get(i);
-        }
-
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < cardDeck.length/2; i++) {
-            list.add(i);
-        }
-
-        Map<ImageView, Integer> cardParents = new HashMap<>();
-        Map<ImageView, Integer> cardChildren = new HashMap<>();
-
-        for (int i = 0; i < cardDeck.length/2; i++) {
-            int r = random.nextInt(list.size());
-            cardParents.put(cardArrParents[i], list.get(r));
-            list.remove(r);
-        }
-
-        for (int i = 0; i < cardDeck.length/2; i++) {
-            list.add(i);
-        }
-
-        for (int i = 0; i < cardDeck.length/2; i++) {
-            int r = random.nextInt(list.size());
-            cardChildren.put(cardArrChild[i], list.get(r));
-            list.remove(r);
-        }
-
-        for (ImageView key : cardParents.keySet()) {
-            key.setOnClickListener(v -> checkMatch(key, images[cardParents.get(key)], cardParents.get(key)));
-        }
-        for (ImageView key : cardChildren.keySet()) {
-            key.setOnClickListener(v -> checkMatch(key, images[cardChildren.get(key)], cardChildren.get(key)));
-        }
+        shuffle();
+        shuffle();
     }
 
     /***********************************************************
@@ -169,11 +132,16 @@ public class LevelTwo extends Fragment {
             if (match1 != match2) {
                 new CountDownTimer(2000, 1000) {
                     @Override
-                    public void onTick(long millisUntilFinished) {// Nothing do do during countdown
-                    }
+                    public void onTick(long millisUntilFinished){/*Nothing to do during countdown*/}
+
                     @Override
                     public void onFinish() {
-                        flipAllCards();
+                        for (int j : cardDeck) {
+                            ImageView cardTemp = requireActivity().findViewById(j);
+                            cardTemp.setImageResource(R.drawable.card_back);
+                        }
+                        setCardsClick(true);
+                        flipped = 0;
                     }
                 }.start();
             }
@@ -189,72 +157,113 @@ public class LevelTwo extends Fragment {
      ******************************************************/
     public void matchFound(ImageView currCard, ImageView prevCard) {
         Animation fade = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
-
         numMatches = numMatches + 1;
         matches.setText(String.valueOf(numMatches));
-
-        if (numMatches == cardDeck.length/2){
-            // Time is sent in elapsed milliseconds
-            // Send timer data to FinishedFragment
-            Bundle score = new Bundle();
-            score.putLong("timerScore", timerScore);
-            getParentFragmentManager().setFragmentResult("timerScore", score);
-            firstStart = true;
-            numMatches = 0;
-            flipped = 0;
-
-            completed = true;
-            navController.navigate(R.id.finishedFragment);
-        }
 
         currCard.startAnimation(fade);
         currCard.setVisibility(View.GONE);
         prevCard.startAnimation(fade);
         prevCard.setVisibility(View.GONE);
 
-        flipped = 0;
-    }
-
-    /****************************************************
-     * Sets all card pictures to back-of-card.
-     ***************************************************/
-    public void flipAllCards() {
-        ImageView cardTemp;
-        for (int j : cardDeck) {
-            cardTemp = requireActivity().findViewById(j);
-            cardTemp.setImageResource(R.drawable.card_back);
+        if (numMatches == cardDeck.length/2) {
+            // Time is sent in elapsed milliseconds to FinishedFragment
+            Bundle score = new Bundle();
+            score.putLong("timerScore", timerScore);
+            getParentFragmentManager().setFragmentResult("timerScore", score);
+            firstStart = true;
+            numMatches = 0;
+            allMatchesFound = true;
+            completed = true;
+            navController.navigate(R.id.finishedFragment);
         }
-        setCardsClick(true);
+
         flipped = 0;
     }
 
     /****************************************************
-     * Changes index of array to "shuffle cards".
-     * @param n - number of cards
-     * @param cards - the array of imageViews (Cards)
+     * Changes index of array to "shuffle cards"
      ***************************************************/
-    public void shuffle(int[] cards, final int n) {
-        for (int i = 0; i < n; i++) {
-            int r = random.nextInt(n - i);
+    public void shuffle() {
+        Animation fadeIn = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
+        ArrayList<ImageView> cards = new ArrayList<>();
+        ImageView[] cardArrParents = new ImageView[cardDeck.length / 2];
+        ImageView[] cardArrChild = new ImageView[cardDeck.length / 2];
+        flipped = 0;
+        match2 = 999;
 
-            int temp = cards[r];
-            cards[r] = cards[i];
-            cards[i] = temp;
+        // Shuffle Images by changing order of array
+        for (int i = 0; i < images.length; i++) {
+            int r = random.nextInt(images.length - i);
+
+            int temp = images[r];
+            images[r] = images[i];
+            images[i] = temp;
+        }
+
+        // Fade cards in and add cards to ArrayList 'cards'
+        for (int j : cardDeck) {
+            ImageView cardTemp = requireActivity().findViewById(j);
+            cardTemp.setImageResource(R.drawable.card_back);
+            cardTemp.startAnimation(fadeIn);
+            cardTemp.setVisibility(View.VISIBLE);
+            cards.add(cardTemp);
+        }
+
+        for (int i = 0; i < cardDeck.length / 2; i++) {
+            int r = random.nextInt(cards.size());
+            cardArrParents[i] = cards.get(r);
+            cards.remove(r);
+        }
+
+        for (int i = 0; i < cardDeck.length / 2; i++) {
+            cardArrChild[i] = cards.get(i);
+        }
+
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < cardDeck.length / 2; i++) {
+            list.add(i);
+        }
+
+        Map<ImageView, Integer> cardParents = new HashMap<>();
+        Map<ImageView, Integer> cardChildren = new HashMap<>();
+
+        for (int i = 0; i < cardDeck.length / 2; i++) {
+            int r = random.nextInt(list.size());
+            cardParents.put(cardArrParents[i], list.get(r));
+            list.remove(r);
+        }
+
+        for (int i = 0; i < cardDeck.length / 2; i++) {
+            list.add(i);
+        }
+
+        for (int i = 0; i < cardDeck.length / 2; i++) {
+            int r = random.nextInt(list.size());
+            cardChildren.put(cardArrChild[i], list.get(r));
+            list.remove(r);
+        }
+
+        for (ImageView key : cardParents.keySet()) {
+            key.setOnClickListener(v -> checkMatch(key, images[cardParents.get(key)], cardParents.get(key)));
+        }
+        for (ImageView key : cardChildren.keySet()) {
+            key.setOnClickListener(v -> checkMatch(key, images[cardChildren.get(key)], cardChildren.get(key)));
         }
     }
 
     /******************************************************
      * Sets all ImageViews being used to clickable
      * or un-clickable.
+     * @param bool - set to either true or false
      ******************************************************/
     private void setCardsClick(Boolean bool) {
         ImageView cardTemp;
         for (int j : cardDeck) {
             cardTemp = requireActivity().findViewById(j);
-            if(Boolean.TRUE.equals(bool)) {
+            if (Boolean.TRUE.equals(bool)) {
                 cardTemp.setEnabled(true);
             }
-            if(Boolean.FALSE.equals(bool)) {
+            if (Boolean.FALSE.equals(bool)) {
                 cardTemp.setEnabled(false);
             }
         }
@@ -264,23 +273,112 @@ public class LevelTwo extends Fragment {
      * Creates Runnable object that constantly updates
      * the variable timerText.
      ***************************************************/
-    final Runnable timeRunnable = new Runnable() {
+    final Runnable timerUp = new Runnable() {
         public void run() {
             if (Boolean.TRUE.equals(firstStart)) {
                 startTime = System.currentTimeMillis();
                 firstStart = false;
             }
             long millis = System.currentTimeMillis() - (startTime);
+            timerScore = millis;
 
             int seconds = (int) (millis / 1000);
             int minutes = seconds / 60;
             millis = millis % 100;
             seconds = seconds % 60;
 
-            timerScore = millis;
             timeHandler.postDelayed(this, 0);
             timerText.setText(String.format(Locale.getDefault(),
                     "%d:%02d:%02d", minutes, seconds, millis));
         }
     };
+
+    /****************************************************
+     * Starts a countdown timer
+     ***************************************************/
+    public void timerDown(){
+
+        CountDownTimer timerCount = new CountDownTimer(45000, 1) {
+
+            public void onTick(long milliseconds) {
+                long minutes = (milliseconds / 60000) % 60;
+                long seconds = (milliseconds / 1000) % 60;
+                timerScore = milliseconds;
+                milliseconds = milliseconds % 100;
+                timerText.setText(String.format(Locale.getDefault(),
+                        "%d:%02d:%02d", minutes, seconds, milliseconds));
+            }
+            public void onFinish() {
+                if (Boolean.FALSE.equals(allMatchesFound)){
+                    timeUp();
+                }
+            }
+        };
+        timerCount.start();
+    }
+
+    /*************************************************************
+     * When time is up make cards disappear and make buttons
+     * appear to give the user the option to play again or return
+     * to sub menu
+     *************************************************************/
+    public void timeUp(){
+        Animation fadeIn = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
+        Animation blink = AnimationUtils.loadAnimation(getActivity(), R.anim.blinks);
+        Animation bounce = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+
+        for (int j : cardDeck) {
+            ImageView cardTemp = requireActivity().findViewById(j);
+            cardTemp.setVisibility(View.GONE);
+        }
+        timerText.setText(R.string.zero);
+        ImageView backButton = requireActivity().findViewById(R.id.timeUpButtonSubMenu2);
+        TextView backText = requireActivity().findViewById(R.id.timeUpButtonSubMenuText2);
+        ImageView retryButton = requireActivity().findViewById(R.id.timeUpButtonRetry2);
+        TextView retryText = requireActivity().findViewById(R.id.timeUpButtonRetryText2);
+        TextView timeUpText = requireActivity().findViewById(R.id.timeUpText2);
+
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        bounce.setInterpolator(interpolator);
+
+        backButton.startAnimation(fadeIn);
+        retryButton.startAnimation(fadeIn);
+        backButton.setVisibility(View.VISIBLE);
+        retryButton.startAnimation(fadeIn);
+        retryButton.setVisibility(View.VISIBLE);
+        backText.startAnimation(fadeIn);
+        backText.setVisibility(View.VISIBLE);
+        retryText.startAnimation(fadeIn);
+        retryText.setVisibility(View.VISIBLE);
+        timeUpText.startAnimation(fadeIn);
+        timeUpText.setVisibility(View.VISIBLE);
+        timeUpText.startAnimation(blink);
+        timerText.startAnimation(blink);
+        backButton.setVisibility(View.VISIBLE);
+
+        backButton.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.subMenu_Single));
+
+        retryButton.setOnClickListener(view1 -> {
+            getParentFragmentManager().beginTransaction().remove(this).commitNowAllowingStateLoss();
+            navController.navigate(R.id.LevelTwo);
+        });
+
+        new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {/* Nothing to do during countdown */ }
+            @Override
+            public void onFinish() { new CountDownTimer(100000, 10000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    backButton.startAnimation(bounce);
+                    backText.startAnimation(bounce);
+                    retryText.startAnimation(bounce);
+                    retryButton.startAnimation(bounce);
+                }
+                @Override
+                public void onFinish() { /* Nothing to do during countdown */ }
+            }.start();}
+        }.start();
+    }
 }

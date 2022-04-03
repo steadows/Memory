@@ -38,6 +38,14 @@
     <string name="sets_screen_back_to_submenu">sets screen back to submenu</string>
     <string name="curtain_background_image">curtain background image</string>
     <string name="back">Back</string>
+    <string name="remaining">Remaining Time</string>
+    <string name="zero">0:00:00</string>
+    <string name="level1">0:20:00</string>
+    <string name="level2">0:45:00</string>
+    <string name="level3">1:00:00</string>
+    <string name="level4">1:30:00</string>
+    <string name="level6">2:30:00</string>
+    <string name="level7">3:00:00</string>
     <string name="back_to_main_menu">Back to Main Menu</string>
     <string name="chose_difficulty">Chose Difficulty</string>
     <string name="choose_difficulty">Choose Difficulty</string>
@@ -46,4 +54,6 @@
     <string name="on_medium_difficulty_there_will_be_a_total_of_12_cards_on_the_board">- On Medium difficulty there will be a total of 12 cards on the board</string>
     <string name="on_hard_difficulty_there_will_be_a_total_of_20_cards_on_the_board">- On Hard difficulty there will be a total of 20 cards on the board</string>
     <string name="on_easy_difficulty_there_will_be_a_total_of_6_cards_on_the_board">- On Easy difficulty there will be a total of 6 cards on the board</string>
+    <string name="time_is_up">TIME IS UP</string>
+    <string name="play_again">Play Again?</string>
 </resources>

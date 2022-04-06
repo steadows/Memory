@@ -11,47 +11,26 @@
 
     <ImageView
         android:id="@+id/curtainImage"
-        android:layout_width="463dp"
-        android:layout_height="813dp"
-        android:layout_marginBottom="38dp"
+        android:layout_width="483dp"
+        android:layout_height="387dp"
         android:contentDescription="@string/curtain_background_image"
         android:src="@drawable/curtain"
-        app:layout_constraintBottom_toTopOf="@+id/Instruction_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/Instruction_button"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="39dp"
-        android:hapticFeedbackEnabled="true"
-        android:text="@string/click_here_to_learn_how_to_play"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/trad_level_spinner"
         android:layout_width="294dp"
         android:layout_height="48dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="196dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#000000"
         android:contentDescription="@string/choose_level"
         android:popupBackground="#6ba7e3"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/select_level_text" />
 
     <ImageView
         android:id="@+id/Traditional_button"
@@ -65,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/trad_level_spinner" />
 
     <ImageView
-        android:id="@+id/Time_trial_button"
+        android:id="@+id/back_to_main_menu_button"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:layout_marginStart="83dp"
@@ -105,22 +84,50 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Time_trial_button"
-        app:layout_constraintEnd_toEndOf="@+id/Time_trial_button"
-        app:layout_constraintStart_toStartOf="@+id/Time_trial_button"
-        app:layout_constraintTop_toTopOf="@+id/Time_trial_button" />
+        app:layout_constraintBottom_toBottomOf="@+id/back_to_main_menu_button"
+        app:layout_constraintEnd_toEndOf="@+id/back_to_main_menu_button"
+        app:layout_constraintStart_toStartOf="@+id/back_to_main_menu_button"
+        app:layout_constraintTop_toTopOf="@+id/back_to_main_menu_button" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/select_level_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:text="@string/choose_difficulty"
+        android:text="@string/select_level"
         android:textColor="#000000"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/curtainImage"
+        app:layout_constraintVertical_bias="0.20999998" />
+
+    <Button
+        android:id="@+id/instructions_button"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@color/purple_200"
+        android:text="Instructions"
+        android:textAlignment="center"
+        app:cornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/submenu_back_button"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="main menu"
+        app:cornerRadius="25dp"
+        app:iconTint="@color/purple_700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

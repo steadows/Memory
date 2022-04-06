@@ -49,6 +49,7 @@
     <string name="back_to_main_menu">Back to Main Menu</string>
     <string name="chose_difficulty">Chose Difficulty</string>
     <string name="choose_difficulty">Choose Difficulty</string>
+    <string name="select_level">Select Level:</string>
     <string name="difficulty">Difficulty</string>
     <string name="there_are_3_different_levels_of_difficulty">There are 3 different levels of difficulty.</string>
     <string name="on_medium_difficulty_there_will_be_a_total_of_12_cards_on_the_board">- On Medium difficulty there will be a total of 12 cards on the board</string>
@@ -56,4 +57,15 @@
     <string name="on_easy_difficulty_there_will_be_a_total_of_6_cards_on_the_board">- On Easy difficulty there will be a total of 6 cards on the board</string>
     <string name="time_is_up">TIME IS UP</string>
     <string name="play_again">Play Again?</string>
+    <string name="select_game_mode">Select Game Mode:</string>
+    <string name="lvl_8">8</string>
+    <string name="lvl_5">5</string>
+    <string name="lvl_6">6</string>
+    <string name="lvl_7">7</string>
+    <string name="instructions">Instructions</string>
+    <string name="main_menu">main menu</string>
+    <string name="lvl_2">2</string>
+    <string name="lvl_1">1</string>
+    <string name="lvl_3">3</string>
+    <string name="lvl_4">4</string>
 </resources>

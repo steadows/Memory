@@ -2,7 +2,6 @@ package com.memory;
 
 import static androidx.navigation.Navigation.findNavController;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,7 +28,8 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
     ImageView timeTrialButton;
     TextView traditionalText;
     TextView timeTrialText;
-    Button instructionButton;
+    Button instructionsButton;
+    Button mainMenuButton;
     NavController navController;
     static Boolean traditionalMode = true;
 
@@ -53,12 +53,13 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         // Find buttons on screen and assign them to variables
         traditionalButton = view.findViewById(R.id.Traditional_button);
         traditionalText = view.findViewById(R.id.traditional_mode_text);
-        timeTrialButton = view.findViewById(R.id.Time_trial_button);
+        timeTrialButton = view.findViewById(R.id.back_to_main_menu_button);
         timeTrialText = view.findViewById(R.id.time_trial_text);
-        instructionButton = view.findViewById(R.id.Instruction_button);
+        instructionsButton = view.findViewById(R.id.instructions_button);
+        mainMenuButton = view.findViewById(R.id.submenu_back_button);
 
         // Spinner element (Drop-down menu)
-        Spinner spin = view.findViewById(R.id.spinner);
+        Spinner spin = view.findViewById(R.id.trad_level_spinner);
 
         String[] levels = { "Level One", "Level Two", "Level Three", "Level Four", "Level Five",
                             "Level Six", "Level Seven", "Level Eight"};
@@ -104,8 +105,11 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         timeTrialButton.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_subMenu_Single_to_mainMenuFragment));
 
-        instructionButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_subMenu_Single_to_instructionFragment));
+        instructionsButton.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_subMenu_to_instructionFragment));
+
+        mainMenuButton.setOnClickListener(v ->
+                findNavController(v));
     }
 
     @Override
@@ -115,11 +119,11 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
 
         if (position == 0) {
             timeTrialButton.setOnClickListener(view1 -> {
-                findNavController(view1).navigate(R.id.action_subMenu_Single_to_LevelOne);
+                findNavController(view1).navigate(R.id.action_subMenu_to_LevelOne);
                 traditionalMode = false;
             });
             traditionalButton.setOnClickListener(view1 -> {
-                findNavController(view1).navigate(R.id.action_subMenu_Single_to_LevelOne);
+                findNavController(view1).navigate(R.id.action_subMenu_to_LevelOne);
                 traditionalMode = true;
             });
         }

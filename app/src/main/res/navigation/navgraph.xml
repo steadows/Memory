@@ -10,65 +10,41 @@
         android:name="com.memory.MainMenuFragment"
         android:label="fragment_main_menu"
         tools:layout="@layout/fragment_main_menu">
-
         <action
-            android:id="@+id/action_mainMenuFragment_to_subMenu_Single"
-            app:destination="@id/subMenu_Single"
+            android:id="@+id/action_main_to_submenu"
+            app:destination="@id/subMenu_isabels_version"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-
-
-
     </fragment>
 
     <fragment
         android:id="@+id/LevelOne"
         android:name="com.memory.LevelOne"
-        android:label="fragment_game_play"
-        tools:layout="@layout/level_one" >
+        android:label="level_one"
+        tools:layout="@layout/level_one">
         <action
             android:id="@+id/action_LevelOne_to_finishedFragment"
             app:destination="@id/finishedFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
-        <action
-            android:id="@+id/action_LevelOne_to_timeUpFragment"
-            app:destination="@id/time_up_screen"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
     </fragment>
+
     <fragment
-        android:id="@+id/LevelOneTimeTrial"
-        android:name="com.memory.LevelOneTimeTrial"
-        android:label="frameLayoutOne_tt"
-        tools:layout="@layout/level_one_time_trial" >
-        <action
-            android:id="@+id/action_LevelOne_to_finishedFragment"
-            app:destination="@id/finishedFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
-        <action
-            android:id="@+id/action_LevelOne_to_timeUpFragment"
-            app:destination="@id/time_up_screen"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
-    </fragment>
-    <fragment
-        android:id="@+id/subMenu_Single"
+        android:id="@+id/subMenu"
         android:name="com.memory.SubMenu"
-        android:label="fragment_sub_menu__single"
+        android:label="fragment_sub_menu"
         tools:layout="@layout/fragment_sub_menu" >
         <action
-            android:id="@+id/action_subMenu_Single_to_LevelOne"
+            android:id="@+id/action_subMenu_to_LevelOne"
             app:destination="@id/LevelOne"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
-            android:id="@+id/action_subMenu_Single_to_instructionFragment"
+            android:id="@+id/action_subMenu_to_instructions"
             app:destination="@id/instructionFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
@@ -103,13 +79,14 @@
             android:id="@+id/action_subMenu_Single_to_levelEight"
             app:destination="@id/levelEight" />
         <action
-            android:id="@+id/action_subMenu_Single_to_levelOne_time_trial"
-            app:destination="@id/LevelOneTimeTrial"
+            android:id="@+id/action_subMenu_to_instructionFragment"
+            app:destination="@id/instructionFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
+
     <fragment
         android:id="@+id/instructionFragment"
         android:name="com.memory.InstructionFragment"
@@ -117,7 +94,7 @@
         tools:layout="@layout/fragment_instruction" >
         <action
             android:id="@+id/action_instructionFragment_to_subMenu_Single"
-            app:destination="@id/subMenu_Single" />
+            app:destination="@id/subMenu" />
     </fragment>
     <fragment
         android:id="@+id/finishedFragment"
@@ -125,27 +102,13 @@
         android:label="fragment_finished"
         tools:layout="@layout/fragment_finished" >
         <action
-            android:id="@+id/action_finishedFragment_to_subMenu_Single"
-            app:destination="@id/subMenu_Single"
+            android:id="@+id/action_finished_to_submenu"
+            app:destination="@id/subMenu_isabels_version"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/subMenu_Single" />
-    </fragment>
-    <fragment
-        android:id="@+id/time_up_screen"
-        android:name="com.memory.TimeUpFragment"
-        android:label="time_up_fragment"
-        tools:layout="@layout/fragment_finished" >
-        <action
-            android:id="@+id/action_timeup_to_subMenu_Single"
-            app:destination="@id/subMenu_Single"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/subMenu_Single" />
+            app:popUpTo="@id/subMenu" />
     </fragment>
     <fragment
         android:id="@+id/LevelFour"
@@ -161,8 +124,8 @@
     <fragment
         android:id="@+id/LevelTwo"
         android:name="com.memory.LevelTwo"
-        android:label="fragment_game_medium"
-        tools:layout="@layout/level_two" >
+        android:label="level_two"
+        tools:layout="@layout/level_two">
         <action
             android:id="@+id/action_LevelTwo_to_finishedFragment"
             app:destination="@id/finishedFragment"
@@ -213,6 +176,39 @@
         <action
             android:id="@+id/action_levelEight_to_finishedFragment"
             app:destination="@id/finishedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subMenu_isabels_version"
+        android:name="com.memory.SubMenuIsabelsVersion"
+        android:label="SubMenuIsabelsVersion" >
+        <action
+            android:id="@+id/action_submenu_to_level_1"
+            app:destination="@id/LevelOne"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_subMenu_to_level_2"
+            app:destination="@id/LevelTwo" />
+        <action
+            android:id="@+id/action_submenu_to_level_3"
+            app:destination="@id/levelThree" />
+        <action
+            android:id="@+id/action_submenu_to_level_4"
+            app:destination="@id/LevelFour" />
+        <action
+            android:id="@+id/action_submenu_to_level_5"
+            app:destination="@id/levelFive" />
+        <action
+            android:id="@+id/action_submenu_to_level_6"
+            app:destination="@id/levelSix" />
+        <action
+            android:id="@+id/action_submenu_to_level_7"
+            app:destination="@id/levelSeven" />
+        <action
+            android:id="@+id/action_submenu_to_level_8"
+            app:destination="@id/levelEight" />
     </fragment>
 
 </navigation>

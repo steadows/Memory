@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -86,10 +84,12 @@ public class LevelOne extends Fragment {
         pulseCountDown.start(() -> setCardsClick(true));
 
         // Call either timer to start after a delay of 5 1/2 seconds
-        if(Boolean.TRUE.equals(SubMenu.traditionalMode)) {
+      //  if(Boolean.TRUE.equals(SubMenu.traditionalMode)) {
+        if (SubMenuIsabelsVersion.traditionalMode){
             timeHandler.postDelayed(timerUp, 5500);
         }
-        if(Boolean.FALSE.equals(SubMenu.traditionalMode)) {
+      //  if(Boolean.FALSE.equals(SubMenu.traditionalMode)) {
+        if (!SubMenuIsabelsVersion.traditionalMode){
             new CountDownTimer(5000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) { timerText.setText(R.string.level1); }
@@ -352,7 +352,7 @@ public class LevelOne extends Fragment {
         backButton.setVisibility(View.VISIBLE);
 
         backButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.subMenu_Single));
+                findNavController(v).navigate(R.id.subMenu));
 
         retryButton.setOnClickListener(view1 -> {
             getParentFragmentManager().beginTransaction().remove(this).commitNowAllowingStateLoss();

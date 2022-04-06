@@ -16,15 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gusakov.library.PulseCountDown;
-import com.gusakov.library.java.interfaces.OnCountdownCompleted;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -375,7 +371,7 @@ public class LevelSix extends Fragment {
         backButton.setVisibility(View.VISIBLE);
 
         backButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.subMenu_Single));
+                findNavController(v).navigate(R.id.subMenu));
 
         retryButton.setOnClickListener(view1 -> {
             getParentFragmentManager().beginTransaction().remove(this).commitNowAllowingStateLoss();

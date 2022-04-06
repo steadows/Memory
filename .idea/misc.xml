@@ -28,7 +28,8 @@
         <entry key="app/src/main/res/layout/fragment_game_hard.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/fragment_game_play.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_instruction.xml" value="0.3375" />
-        <entry key="app/src/main/res/layout/fragment_sub_menu.xml" value="0.3375" />
+        <entry key="app/src/main/res/layout/fragment_sub_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_sub_menu_isabels_version.xml" value="0.22437673130193905" />
         <entry key="app/src/main/res/layout/level_eight.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/level_five.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/level_four.xml" value="0.23324275362318841" />

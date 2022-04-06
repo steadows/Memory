@@ -32,70 +32,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/subMenu"
-        android:name="com.memory.SubMenu"
-        android:label="fragment_sub_menu"
-        tools:layout="@layout/fragment_sub_menu" >
-        <action
-            android:id="@+id/action_subMenu_to_LevelOne"
-            app:destination="@id/LevelOne"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-        <action
-            android:id="@+id/action_subMenu_to_instructions"
-            app:destination="@id/instructionFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-        <action
-            android:id="@+id/action_subMenu_Single_to_mainMenuFragment"
-            app:destination="@id/mainMenuFragment" />
-        <action
-            android:id="@+id/action_subMenu_Single_to_LevelFour"
-            app:destination="@id/LevelFour"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
-        <action
-            android:id="@+id/action_subMenu_Single_to_LevelTwo"
-            app:destination="@id/LevelTwo"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
-        <action
-            android:id="@+id/action_subMenu_Single_to_levelThree"
-            app:destination="@id/levelThree" />
-        <action
-            android:id="@+id/action_subMenu_Single_to_levelFive"
-            app:destination="@id/levelFive" />
-        <action
-            android:id="@+id/action_subMenu_Single_to_levelSix"
-            app:destination="@id/levelSix" />
-        <action
-            android:id="@+id/action_subMenu_Single_to_levelSeven"
-            app:destination="@id/levelSeven" />
-        <action
-            android:id="@+id/action_subMenu_Single_to_levelEight"
-            app:destination="@id/levelEight" />
-        <action
-            android:id="@+id/action_subMenu_to_instructionFragment"
-            app:destination="@id/instructionFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-    </fragment>
-
-    <fragment
         android:id="@+id/instructionFragment"
         android:name="com.memory.InstructionFragment"
         android:label="fragment_instruction"
-        tools:layout="@layout/fragment_instruction" >
-        <action
-            android:id="@+id/action_instructionFragment_to_subMenu_Single"
-            app:destination="@id/subMenu" />
-    </fragment>
+        tools:layout="@layout/fragment_instruction" />
     <fragment
         android:id="@+id/finishedFragment"
         android:name="com.memory.FinishedFragment"
@@ -108,7 +48,7 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/subMenu" />
+            app:popUpTo="@id/subMenu_isabels_version" />
     </fragment>
     <fragment
         android:id="@+id/LevelFour"
@@ -179,7 +119,7 @@
     </fragment>
     <fragment
         android:id="@+id/subMenu_isabels_version"
-        android:name="com.memory.SubMenuIsabelsVersion"
+        android:name="com.memory.SubMenu"
         android:label="SubMenuIsabelsVersion" >
         <action
             android:id="@+id/action_submenu_to_level_1"
@@ -209,6 +149,9 @@
         <action
             android:id="@+id/action_submenu_to_level_8"
             app:destination="@id/levelEight" />
+        <action
+            android:id="@+id/action_submenu_to_instructions"
+            app:destination="@id/instructionFragment" />
     </fragment>
 
 </navigation>

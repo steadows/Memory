@@ -85,11 +85,11 @@ public class LevelOne extends Fragment {
 
         // Call either timer to start after a delay of 5 1/2 seconds
       //  if(Boolean.TRUE.equals(SubMenu.traditionalMode)) {
-        if (SubMenuIsabelsVersion.traditionalMode){
+        if (SubMenu.traditionalMode){
             timeHandler.postDelayed(timerUp, 5500);
         }
       //  if(Boolean.FALSE.equals(SubMenu.traditionalMode)) {
-        if (!SubMenuIsabelsVersion.traditionalMode){
+        if (!SubMenu.traditionalMode){
             new CountDownTimer(5000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) { timerText.setText(R.string.level1); }
@@ -352,7 +352,7 @@ public class LevelOne extends Fragment {
         backButton.setVisibility(View.VISIBLE);
 
         backButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.subMenu));
+                findNavController(v).navigate(R.id.subMenu_isabels_version));
 
         retryButton.setOnClickListener(view1 -> {
             getParentFragmentManager().beginTransaction().remove(this).commitNowAllowingStateLoss();

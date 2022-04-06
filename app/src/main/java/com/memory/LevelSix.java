@@ -371,7 +371,7 @@ public class LevelSix extends Fragment {
         backButton.setVisibility(View.VISIBLE);
 
         backButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.subMenu));
+                findNavController(v).navigate(R.id.subMenu_isabels_version));
 
         retryButton.setOnClickListener(view1 -> {
             getParentFragmentManager().beginTransaction().remove(this).commitNowAllowingStateLoss();

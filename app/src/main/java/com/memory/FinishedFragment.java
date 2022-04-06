@@ -103,7 +103,7 @@ public class FinishedFragment extends Fragment {
                 .streamFor(300, 5000L));
 
         backButton.setOnClickListener((v ->
-                Navigation.findNavController(v).navigate(R.id.action_finishedFragment_to_subMenu_Single)));
+                Navigation.findNavController(v).navigate(R.id.action_finished_to_submenu)));
 
         // Countdown till next "bounce"
         new CountDownTimer(100000, 6000) {

@@ -2,7 +2,6 @@ package com.memory;
 
 import static androidx.navigation.Navigation.findNavController;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,20 +17,26 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListener{
 
-    ImageView traditionalButton;
-    ImageView timeTrialButton;
-    TextView traditionalText;
-    TextView timeTrialText;
-    Button instructionButton;
+    Button L1Button;
+    Button L2Button;
+    Button L3Button;
+    Button L4Button;
+    Button L5Button;
+    Button L6Button;
+    Button L7Button;
+    Button L8Button;
+
+    Button instructionsButton;
+    Button mainMenuButton;
+    Spinner modeSpinner;
     NavController navController;
-    static Boolean traditionalMode = true;
+
+    static boolean traditionalMode = true;
 
     public SubMenu() {
         // Required empty public constructor
@@ -51,44 +56,87 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         navController = Navigation.findNavController(view);
 
         // Find buttons on screen and assign them to variables
-        traditionalButton = view.findViewById(R.id.Traditional_button);
-        traditionalText = view.findViewById(R.id.traditional_mode_text);
-        timeTrialButton = view.findViewById(R.id.Time_trial_button);
-        timeTrialText = view.findViewById(R.id.time_trial_text);
-        instructionButton = view.findViewById(R.id.Instruction_button);
+        L1Button = view.findViewById(R.id.level_1_button);
+        L2Button = view.findViewById(R.id.level_2_button);
+        L3Button = view.findViewById(R.id.level_3_button);
+        L4Button = view.findViewById(R.id.level_4_button);
+        L5Button = view.findViewById(R.id.level_5_button);
+        L6Button = view.findViewById(R.id.level_6_button);
+        L7Button = view.findViewById(R.id.level_7_button);
+        L8Button = view.findViewById(R.id.level_8_button);
+        instructionsButton = view.findViewById(R.id.instructions_button);
+        mainMenuButton = view.findViewById(R.id.submenu_back_button);
 
         // Spinner element (Drop-down menu)
-        Spinner spin = view.findViewById(R.id.spinner);
-
-        String[] levels = { "Level One", "Level Two", "Level Three", "Level Four", "Level Five",
-                            "Level Six", "Level Seven", "Level Eight"};
+        modeSpinner = view.findViewById(R.id.game_mode_spinner);
 
         if (!LevelOne.completed){
-            levels[1] = "Level Two [Locked]";
+            L2Button.setEnabled(false);
+            L2Button.setBackgroundResource(R.color.light_blue_650);
+            L2Button.setTextColor(0x66000000);
         }
         if (!LevelTwo.completed){
-            levels[2] = "Level Three [Locked]";
+            L3Button.setEnabled(false);
+            L3Button.setBackgroundResource(R.color.light_blue_650);
+            L3Button.setTextColor(0x66000000);
         }
         if (!LevelThree.completed){
-            levels[3] = "Level Four [Locked]";
+            L4Button.setEnabled(false);
+            L4Button.setBackgroundResource(R.color.light_blue_650);
+            L4Button.setTextColor(0x66000000);
         }
         if (!LevelFour.completed){
-            levels[4] = "Level Five [Locked]";
+            L5Button.setEnabled(false);
+            L5Button.setBackgroundResource(R.color.light_blue_650);
+            L5Button.setTextColor(0x66000000);
         }
         if (!LevelFive.completed){
-            levels[5] = "Level Six [Locked]";
+            L6Button.setEnabled(false);
+            L6Button.setBackgroundResource(R.color.light_blue_650);
+            L6Button.setTextColor(0x66000000);
         }
         if (!LevelSix.completed){
-            levels[6] = "Level Seven [Locked]";
+            L7Button.setEnabled(false);
+            L7Button.setBackgroundResource(R.color.light_blue_650);
+            L7Button.setTextColor(0x66000000);
         }
         if (!LevelSeven.completed){
-            levels[7] = "Level Eight [Locked]";
+            L8Button.setEnabled(false);
+            L8Button.setBackgroundResource(R.color.light_blue_650);
+            L8Button.setTextColor(0x66000000);
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, levels);
+        String[] modes = { "Traditional", "Time Trial" };
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_item, modes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin.setAdapter(adapter);
-        spin.setOnItemSelectedListener(this);
+        modeSpinner.setAdapter(adapter);
+        modeSpinner.setOnItemSelectedListener(this);
+
+        L1Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_level_1));
+
+        L2Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_subMenu_to_level_2));
+
+        L3Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_level_3));
+
+        L4Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_level_4));
+
+        L5Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_level_5));
+
+        L6Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_level_6));
+
+        L7Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_level_7));
+
+        L8Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_level_8));
+
 
         // Gives buttons bounce animation "bubble button"
         final Animation bounce = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
@@ -96,16 +144,11 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
         bounce.setInterpolator(interpolator);
 
-        traditionalButton.startAnimation(bounce);
-        traditionalText.startAnimation(bounce);
-        timeTrialButton.startAnimation(bounce);
-        timeTrialText.startAnimation(bounce);
+        instructionsButton.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_instructions));
 
-        timeTrialButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_subMenu_Single_to_mainMenuFragment));
-
-        instructionButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_subMenu_Single_to_instructionFragment));
+        mainMenuButton.setOnClickListener(v ->
+                findNavController(v).popBackStack());
     }
 
     @Override
@@ -113,128 +156,26 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         Toast message = new Toast(getActivity());
         message.setText("Please Complete Previous Level(s)");
 
-        if (position == 0) {
-            timeTrialButton.setOnClickListener(view1 -> {
-                findNavController(view1).navigate(R.id.action_subMenu_Single_to_LevelOne);
-                traditionalMode = false;
-            });
-            traditionalButton.setOnClickListener(view1 -> {
-                findNavController(view1).navigate(R.id.action_subMenu_Single_to_LevelOne);
-                traditionalMode = true;
-            });
+        if (position == 0){
+            traditionalMode = true;
         }
-
         if (position == 1) {
-            traditionalButton.setOnClickListener(v -> message.show());
-            timeTrialButton.setOnClickListener(v -> message.show());
-            if (LevelOne.completed) {
-                timeTrialButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_LevelTwo);
-                    traditionalMode = false;
-                });
-                traditionalButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_LevelTwo);
-                    traditionalMode = true;
-                });
-            }
+            traditionalMode = false;
         }
 
-        if (position == 2) {
-            traditionalButton.setOnClickListener(v -> message.show());
-            timeTrialButton.setOnClickListener(v -> message.show());
-            if (LevelTwo.completed) {
-                timeTrialButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelThree);
-                    traditionalMode = false;
-                });
-                traditionalButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelThree);
-                    traditionalMode = true;
-                });
-            }
-        }
-
-        if (position == 3) {
-            traditionalButton.setOnClickListener(v -> message.show());
-            timeTrialButton.setOnClickListener(v -> message.show());
-            if (LevelThree.completed) {
-                timeTrialButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_LevelFour);
-                    traditionalMode = false;
-                });
-                traditionalButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_LevelFour);
-                    traditionalMode = false;
-                });
-            }
-        }
-
-        if (position == 4) {
-            traditionalButton.setOnClickListener(v -> message.show());
-            timeTrialButton.setOnClickListener(v -> message.show());
-            if (LevelFour.completed) {
-                timeTrialButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelFive);
-                    traditionalMode = false;
-                });
-                traditionalButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelFive);
-                    traditionalMode = false;
-                });
-            }
-        }
-
-        if (position == 5) {
-            traditionalButton.setOnClickListener(v -> message.show());
-            timeTrialButton.setOnClickListener(v -> message.show());
-            if (LevelFive.completed) {
-                timeTrialButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelSix);
-                    traditionalMode = false;
-                });
-
-                traditionalButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelSix);
-                    traditionalMode = false;
-                });
-            }
-        }
-
-        if (position == 6) {
-            traditionalButton.setOnClickListener(v -> message.show());
-            timeTrialButton.setOnClickListener(v -> message.show());
-            if (LevelSix.completed) {
-                timeTrialButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelSeven);
-                    traditionalMode = false;
-                });
-                traditionalButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelSeven);
-                    traditionalMode = false;
-                });
-            }
-        }
-
-        if (position == 7) {
-            traditionalButton.setOnClickListener(v -> message.show());
-            timeTrialButton.setOnClickListener(v -> message.show());
-            if (LevelSeven.completed) {
-                timeTrialButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelEight);
-                    traditionalMode = false;
-                });
-                traditionalButton.setOnClickListener(view1 -> {
-                    findNavController(view1).navigate(R.id.action_subMenu_Single_to_levelEight);
-                    traditionalMode = false;
-                });
-            }
-        }
     }
 
     @Override
     public void onNothingSelected(AdapterView parent) {
-        traditionalButton.setOnClickListener(null);
-        timeTrialButton.setOnClickListener(null);
+        L1Button.setOnClickListener(null);
+        L2Button.setOnClickListener(null);
+        L3Button.setOnClickListener(null);
+        L4Button.setOnClickListener(null);
+        L5Button.setOnClickListener(null);
+        L6Button.setOnClickListener(null);
+        L7Button.setOnClickListener(null);
+        L8Button.setOnClickListener(null);
+
     }
 
 

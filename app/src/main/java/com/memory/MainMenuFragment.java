@@ -65,6 +65,6 @@ public class MainMenuFragment extends Fragment {
         }.start();
 
         playGameButton.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_mainMenuFragment_to_subMenu_Single));
+                findNavController(v).navigate(R.id.action_main_to_submenu));
     }
 }

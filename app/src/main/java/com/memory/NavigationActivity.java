@@ -11,4 +11,9 @@ public class NavigationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
     }
+
+    @Override
+    public void onBackPressed() {
+        //This removes the back buttons functionality
+    }
 }

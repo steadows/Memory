@@ -107,7 +107,7 @@
         android:backgroundTintMode="src_atop"
         android:contentDescription="@string/choose_level"
         android:dropDownWidth="225dp"
-        android:popupBackground="@android:drawable/spinner_background"
+        android:popupBackground="@android:drawable/spinner_dropdown_background"
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

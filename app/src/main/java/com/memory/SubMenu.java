@@ -22,14 +22,14 @@ import android.widget.Toast;
 
 public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListener{
 
-    Button L1Button;
-    Button L2Button;
-    Button L3Button;
-    Button L4Button;
-    Button L5Button;
-    Button L6Button;
-    Button L7Button;
-    Button L8Button;
+    Button lvl1Button;
+    Button lvl2Button;
+    Button lvl3Button;
+    Button lvl4Button;
+    Button lvl5Button;
+    Button lvl6Button;
+    Button lvl7Button;
+    Button lvl8Button;
 
     Button instructionsButton;
     Button mainMenuButton;
@@ -56,14 +56,14 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         navController = Navigation.findNavController(view);
 
         // Find buttons on screen and assign them to variables
-        L1Button = view.findViewById(R.id.level_1_button);
-        L2Button = view.findViewById(R.id.level_2_button);
-        L3Button = view.findViewById(R.id.level_3_button);
-        L4Button = view.findViewById(R.id.level_4_button);
-        L5Button = view.findViewById(R.id.level_5_button);
-        L6Button = view.findViewById(R.id.level_6_button);
-        L7Button = view.findViewById(R.id.level_7_button);
-        L8Button = view.findViewById(R.id.level_8_button);
+        lvl1Button = view.findViewById(R.id.level_1_button);
+        lvl2Button = view.findViewById(R.id.level_2_button);
+        lvl3Button = view.findViewById(R.id.level_3_button);
+        lvl4Button = view.findViewById(R.id.level_4_button);
+        lvl5Button = view.findViewById(R.id.level_5_button);
+        lvl6Button = view.findViewById(R.id.level_6_button);
+        lvl7Button = view.findViewById(R.id.level_7_button);
+        lvl8Button = view.findViewById(R.id.level_8_button);
         instructionsButton = view.findViewById(R.id.instructions_button);
         mainMenuButton = view.findViewById(R.id.submenu_back_button);
 
@@ -71,39 +71,39 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         modeSpinner = view.findViewById(R.id.game_mode_spinner);
 
         if (!LevelOne.completed){
-            L2Button.setEnabled(false);
-            L2Button.setBackgroundResource(R.color.light_blue_650);
-            L2Button.setTextColor(0x66000000);
+            lvl2Button.setEnabled(false);
+            lvl2Button.setBackgroundResource(R.color.light_blue_650);
+            lvl2Button.setTextColor(0x66000000);
         }
         if (!LevelTwo.completed){
-            L3Button.setEnabled(false);
-            L3Button.setBackgroundResource(R.color.light_blue_650);
-            L3Button.setTextColor(0x66000000);
+            lvl3Button.setEnabled(false);
+            lvl3Button.setBackgroundResource(R.color.light_blue_650);
+            lvl3Button.setTextColor(0x66000000);
         }
         if (!LevelThree.completed){
-            L4Button.setEnabled(false);
-            L4Button.setBackgroundResource(R.color.light_blue_650);
-            L4Button.setTextColor(0x66000000);
+            lvl4Button.setEnabled(false);
+            lvl4Button.setBackgroundResource(R.color.light_blue_650);
+            lvl4Button.setTextColor(0x66000000);
         }
         if (!LevelFour.completed){
-            L5Button.setEnabled(false);
-            L5Button.setBackgroundResource(R.color.light_blue_650);
-            L5Button.setTextColor(0x66000000);
+            lvl5Button.setEnabled(false);
+            lvl5Button.setBackgroundResource(R.color.light_blue_650);
+            lvl5Button.setTextColor(0x66000000);
         }
         if (!LevelFive.completed){
-            L6Button.setEnabled(false);
-            L6Button.setBackgroundResource(R.color.light_blue_650);
-            L6Button.setTextColor(0x66000000);
+            lvl6Button.setEnabled(false);
+            lvl6Button.setBackgroundResource(R.color.light_blue_650);
+            lvl6Button.setTextColor(0x66000000);
         }
         if (!LevelSix.completed){
-            L7Button.setEnabled(false);
-            L7Button.setBackgroundResource(R.color.light_blue_650);
-            L7Button.setTextColor(0x66000000);
+            lvl7Button.setEnabled(false);
+            lvl7Button.setBackgroundResource(R.color.light_blue_650);
+            lvl7Button.setTextColor(0x66000000);
         }
         if (!LevelSeven.completed){
-            L8Button.setEnabled(false);
-            L8Button.setBackgroundResource(R.color.light_blue_650);
-            L8Button.setTextColor(0x66000000);
+            lvl8Button.setEnabled(false);
+            lvl8Button.setBackgroundResource(R.color.light_blue_650);
+            lvl8Button.setTextColor(0x66000000);
         }
 
         String[] modes = { "Traditional", "Time Trial" };
@@ -113,28 +113,28 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         modeSpinner.setAdapter(adapter);
         modeSpinner.setOnItemSelectedListener(this);
 
-        L1Button.setOnClickListener(v ->
+        lvl1Button.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_submenu_to_level_1));
 
-        L2Button.setOnClickListener(v ->
+        lvl2Button.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_subMenu_to_level_2));
 
-        L3Button.setOnClickListener(v ->
+        lvl3Button.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_submenu_to_level_3));
 
-        L4Button.setOnClickListener(v ->
+        lvl4Button.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_submenu_to_level_4));
 
-        L5Button.setOnClickListener(v ->
+        lvl5Button.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_submenu_to_level_5));
 
-        L6Button.setOnClickListener(v ->
+        lvl6Button.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_submenu_to_level_6));
 
-        L7Button.setOnClickListener(v ->
+        lvl7Button.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_submenu_to_level_7));
 
-        L8Button.setOnClickListener(v ->
+        lvl8Button.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_submenu_to_level_8));
 
 
@@ -144,11 +144,14 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
         bounce.setInterpolator(interpolator);
 
+        instructionsButton.startAnimation(bounce);
+        mainMenuButton.startAnimation(bounce);
+
         instructionsButton.setOnClickListener(v ->
                 findNavController(v).navigate(R.id.action_submenu_to_instructions));
 
         mainMenuButton.setOnClickListener(v ->
-                findNavController(v).popBackStack());
+                findNavController(v).navigate((R.id.action_subMenu_to_mainMenuFragment)));
     }
 
     @Override
@@ -167,14 +170,14 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
 
     @Override
     public void onNothingSelected(AdapterView parent) {
-        L1Button.setOnClickListener(null);
-        L2Button.setOnClickListener(null);
-        L3Button.setOnClickListener(null);
-        L4Button.setOnClickListener(null);
-        L5Button.setOnClickListener(null);
-        L6Button.setOnClickListener(null);
-        L7Button.setOnClickListener(null);
-        L8Button.setOnClickListener(null);
+        lvl1Button.setOnClickListener(null);
+        lvl2Button.setOnClickListener(null);
+        lvl3Button.setOnClickListener(null);
+        lvl4Button.setOnClickListener(null);
+        lvl5Button.setOnClickListener(null);
+        lvl6Button.setOnClickListener(null);
+        lvl7Button.setOnClickListener(null);
+        lvl8Button.setOnClickListener(null);
 
     }
 

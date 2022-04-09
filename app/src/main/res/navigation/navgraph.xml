@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_main_menu">
         <action
             android:id="@+id/action_main_to_submenu"
-            app:destination="@id/subMenu_isabels_version"
+            app:destination="@id/subMenu"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
@@ -35,7 +35,13 @@
         android:id="@+id/instructionFragment"
         android:name="com.memory.InstructionFragment"
         android:label="fragment_instruction"
-        tools:layout="@layout/fragment_instruction" />
+        tools:layout="@layout/fragment_instruction" >
+        <action
+            android:id="@+id/action_instructionFragment_to_subMenu"
+            app:destination="@id/subMenu"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
     <fragment
         android:id="@+id/finishedFragment"
         android:name="com.memory.FinishedFragment"
@@ -43,12 +49,12 @@
         tools:layout="@layout/fragment_finished" >
         <action
             android:id="@+id/action_finished_to_submenu"
-            app:destination="@id/subMenu_isabels_version"
+            app:destination="@id/subMenu"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/subMenu_isabels_version" />
+            app:popUpTo="@id/subMenu" />
     </fragment>
     <fragment
         android:id="@+id/LevelFour"
@@ -79,7 +85,9 @@
         tools:layout="@layout/level_three" >
         <action
             android:id="@+id/action_levelThree_to_finishedFragment"
-            app:destination="@id/finishedFragment" />
+            app:destination="@id/finishedFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/levelFive"
@@ -88,7 +96,9 @@
         tools:layout="@layout/level_five" >
         <action
             android:id="@+id/action_levelFive_to_finishedFragment"
-            app:destination="@id/finishedFragment" />
+            app:destination="@id/finishedFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/levelSix"
@@ -97,7 +107,9 @@
         tools:layout="@layout/level_six" >
         <action
             android:id="@+id/action_levelSix_to_finishedFragment"
-            app:destination="@id/finishedFragment" />
+            app:destination="@id/finishedFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/levelSeven"
@@ -106,7 +118,9 @@
         tools:layout="@layout/level_seven" >
         <action
             android:id="@+id/action_levelSeven_to_finishedFragment"
-            app:destination="@id/finishedFragment" />
+            app:destination="@id/finishedFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/levelEight"
@@ -115,12 +129,14 @@
         tools:layout="@layout/level_eight" >
         <action
             android:id="@+id/action_levelEight_to_finishedFragment"
-            app:destination="@id/finishedFragment" />
+            app:destination="@id/finishedFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/subMenu_isabels_version"
+        android:id="@+id/subMenu"
         android:name="com.memory.SubMenu"
-        android:label="SubMenuIsabelsVersion" >
+        android:label="SubMenu">
         <action
             android:id="@+id/action_submenu_to_level_1"
             app:destination="@id/LevelOne"
@@ -130,28 +146,47 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_subMenu_to_level_2"
-            app:destination="@id/LevelTwo" />
+            app:destination="@id/LevelTwo"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_submenu_to_level_3"
-            app:destination="@id/levelThree" />
+            app:destination="@id/levelThree"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_submenu_to_level_4"
-            app:destination="@id/LevelFour" />
+            app:destination="@id/LevelFour"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_submenu_to_level_5"
-            app:destination="@id/levelFive" />
+            app:destination="@id/levelFive"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_submenu_to_level_6"
             app:destination="@id/levelSix" />
         <action
             android:id="@+id/action_submenu_to_level_7"
-            app:destination="@id/levelSeven" />
+            app:destination="@id/levelSeven"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_submenu_to_level_8"
-            app:destination="@id/levelEight" />
+            app:destination="@id/levelEight"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_submenu_to_instructions"
-            app:destination="@id/instructionFragment" />
+            app:destination="@id/instructionFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_subMenu_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/fade_out" />
     </fragment>
 
 </navigation>

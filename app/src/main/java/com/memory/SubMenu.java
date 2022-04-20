@@ -67,43 +67,77 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         instructionsButton = view.findViewById(R.id.instructions_button);
         mainMenuButton = view.findViewById(R.id.submenu_back_button);
 
+        Toast message = new Toast(getActivity());
+        message.setText("Please Complete Previous Level(s)");
+
         // Spinner element (Drop-down menu)
         modeSpinner = view.findViewById(R.id.game_mode_spinner);
 
+        lvl1Button.setOnClickListener(v ->
+                findNavController(v).navigate(R.id.action_submenu_to_level_1));
+
         if (!LevelOne.completed){
-            lvl2Button.setEnabled(false);
+            lvl2Button.setOnClickListener(v -> message.show());
             lvl2Button.setBackgroundResource(R.color.light_blue_650);
             lvl2Button.setTextColor(0x66000000);
         }
+        else{
+            lvl2Button.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_subMenu_to_level_2));
+        }
         if (!LevelTwo.completed){
-            lvl3Button.setEnabled(false);
+            lvl3Button.setOnClickListener(v -> message.show());
             lvl3Button.setBackgroundResource(R.color.light_blue_650);
             lvl3Button.setTextColor(0x66000000);
         }
+        else{
+            lvl3Button.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_submenu_to_level_3));
+        }
         if (!LevelThree.completed){
-            lvl4Button.setEnabled(false);
+            lvl4Button.setOnClickListener(v -> message.show());
             lvl4Button.setBackgroundResource(R.color.light_blue_650);
             lvl4Button.setTextColor(0x66000000);
         }
+        else {
+            lvl4Button.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_submenu_to_level_4));
+        }
         if (!LevelFour.completed){
-            lvl5Button.setEnabled(false);
+            lvl5Button.setOnClickListener(v -> message.show());
             lvl5Button.setBackgroundResource(R.color.light_blue_650);
             lvl5Button.setTextColor(0x66000000);
         }
+        else {
+            lvl5Button.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_submenu_to_level_5));
+        }
         if (!LevelFive.completed){
-            lvl6Button.setEnabled(false);
+            lvl6Button.setOnClickListener(v -> message.show());
             lvl6Button.setBackgroundResource(R.color.light_blue_650);
             lvl6Button.setTextColor(0x66000000);
         }
+        else {
+            lvl6Button.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_submenu_to_level_6));
+        }
         if (!LevelSix.completed){
-            lvl7Button.setEnabled(false);
+            lvl7Button.setOnClickListener(v -> message.show());
             lvl7Button.setBackgroundResource(R.color.light_blue_650);
             lvl7Button.setTextColor(0x66000000);
         }
+        else {
+            lvl7Button.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_submenu_to_level_7));
+        }
         if (!LevelSeven.completed){
-            lvl8Button.setEnabled(false);
+            lvl8Button.setOnClickListener(v -> message.show());
             lvl8Button.setBackgroundResource(R.color.light_blue_650);
             lvl8Button.setTextColor(0x66000000);
+        }
+        else {
+            lvl8Button.setOnClickListener(v ->
+                    findNavController(v).navigate(R.id.action_submenu_to_level_8));
         }
 
         String[] modes = { "Traditional", "Time Trial" };
@@ -112,30 +146,6 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         modeSpinner.setAdapter(adapter);
         modeSpinner.setOnItemSelectedListener(this);
-
-        lvl1Button.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_submenu_to_level_1));
-
-        lvl2Button.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_subMenu_to_level_2));
-
-        lvl3Button.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_submenu_to_level_3));
-
-        lvl4Button.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_submenu_to_level_4));
-
-        lvl5Button.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_submenu_to_level_5));
-
-        lvl6Button.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_submenu_to_level_6));
-
-        lvl7Button.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_submenu_to_level_7));
-
-        lvl8Button.setOnClickListener(v ->
-                findNavController(v).navigate(R.id.action_submenu_to_level_8));
 
 
         // Gives buttons bounce animation "bubble button"
@@ -156,8 +166,6 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
 
     @Override
     public void onItemSelected(AdapterView parent, View view, int position, long id) {
-        Toast message = new Toast(getActivity());
-        message.setText("Please Complete Previous Level(s)");
 
         if (position == 0){
             traditionalMode = true;
@@ -170,16 +178,6 @@ public class SubMenu extends Fragment implements AdapterView.OnItemSelectedListe
 
     @Override
     public void onNothingSelected(AdapterView parent) {
-        lvl1Button.setOnClickListener(null);
-        lvl2Button.setOnClickListener(null);
-        lvl3Button.setOnClickListener(null);
-        lvl4Button.setOnClickListener(null);
-        lvl5Button.setOnClickListener(null);
-        lvl6Button.setOnClickListener(null);
-        lvl7Button.setOnClickListener(null);
-        lvl8Button.setOnClickListener(null);
-
+        /* Nothing to do */
     }
-
-
 }

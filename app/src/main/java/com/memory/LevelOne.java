@@ -84,11 +84,9 @@ public class LevelOne extends Fragment {
         pulseCountDown.start(() -> setCardsClick(true));
 
         // Call either timer to start after a delay of 5 1/2 seconds
-      //  if(Boolean.TRUE.equals(SubMenu.traditionalMode)) {
         if (SubMenu.traditionalMode){
             timeHandler.postDelayed(timerUp, 5500);
         }
-      //  if(Boolean.FALSE.equals(SubMenu.traditionalMode)) {
         if (!SubMenu.traditionalMode){
             new CountDownTimer(5000, 1000) {
                 @Override

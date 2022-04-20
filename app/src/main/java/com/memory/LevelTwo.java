@@ -78,7 +78,6 @@ public class LevelTwo extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        //allMatchesFound = false;
 
         // Assign to variables
         timerText = view.findViewById(R.id.timer_text2);
